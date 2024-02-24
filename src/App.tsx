@@ -1,5 +1,16 @@
+import { Button } from "primereact/button";
+import { PrimeReactProvider } from "primereact/api";
+import "./App.scss";
+
 const App = () => {
-  return <h1>Hello React</h1>;
+  return (
+    <PrimeReactProvider>
+      <h1>Hello</h1>
+      <div className="card flex justify-content-center">
+        <Button label="Check" icon="pi pi-check" />
+      </div>
+    </PrimeReactProvider>
+  );
 };
 
 export default App;

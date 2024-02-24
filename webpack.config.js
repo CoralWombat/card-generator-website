@@ -39,6 +39,10 @@ module.exports = {
         test: /\.(ts|tsx)$/, // `ts` and `tsx` files are parsed using `ts-loader`
         loader: "ts-loader",
       },
+      {
+        test: /\.(woff|woff2|eot|ttf|otf)$/i,
+        type: "asset/resource",
+      },
     ],
   },
 };
