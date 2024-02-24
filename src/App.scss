@@ -1,2 +1,31 @@
 @import "primereact/resources/themes/lara-light-cyan/theme.css";
+@import "primereact/resources/primereact.min.css";
 @import "primeicons/primeicons.css";
+@import "primeflex/primeflex.css";
+
+@font-face {
+  font-family: "Inter var";
+  font-weight: 100 900;
+  font-display: swap;
+  font-style: normal;
+  font-named-instance: "Regular";
+  src: url("https://fonts.gstatic.com/s/inter/v13/UcC73FwrK3iLTeHuS_fvQtMwCp50KnMa1ZL7.woff2")
+    format("woff2");
+}
+@font-face {
+  font-family: "Inter var";
+  font-weight: 100 900;
+  font-display: swap;
+  font-style: italic;
+  font-named-instance: "Italic";
+  src: url("https://fonts.gstatic.com/s/inter/v13/UcC73FwrK3iLTeHuS_fvQtMwCp50KnMa1ZL7.woff2")
+    format("woff2");
+}
+@font-face {
+  font-family: "primeicons";
+  font-display: block;
+  src: url("https://primereact.org/_next/static/media/primeicons.ba3f916d.woff2")
+    format("woff2");
+  font-weight: normal;
+  font-style: normal;
+}
