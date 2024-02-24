@@ -1,0 +1,20 @@
+{
+    "compilerOptions": {
+        "jsx": "react-jsx",
+        "noImplicitAny": true,
+        "lib": [
+            "ESNext",
+            "dom"
+        ],
+        "target": "ESNext",
+        "noImplicitThis": true,
+        "strictNullChecks": false,
+        "strict": true,
+        "allowSyntheticDefaultImports": true,
+        "moduleResolution": "node"
+    },
+    "exclude": [
+        "dist",
+        "generated"
+    ]
+}
