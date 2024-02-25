@@ -1,18 +1,24 @@
+import { getTemplateByName } from "../../utils/templateUtils";
+
+const Mustache = require("mustache");
+
 type TemplateRendererProps = {
-  template: string;
+  templateName: string;
   templateProps?: any;
 };
 
 const TemplateRenderer = ({
-  template,
+  templateName,
   templateProps,
 }: TemplateRendererProps) => {
-  return (
-    <div>
-      <div>{template}</div>
-      <div>{templateProps}</div>
-    </div>
-  );
+  if (!templateName) return null;
+
+  const template = getTemplateByName(templateName);
+
+  const output = Mustache.render(template, templateProps);
+  console.log(output);
+
+  return <div id="card-preview" dangerouslySetInnerHTML={{ __html: output }} />;
 };
 
 export default TemplateRenderer;

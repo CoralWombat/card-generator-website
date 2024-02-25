@@ -3,14 +3,21 @@ import { GeneratorMode } from "../../model/GeneratorMode";
 import { InputSwitch } from "primereact/inputswitch";
 import { Dropdown } from "primereact/dropdown";
 import TemplateRenderer from "../../components/TemplateRenderer/TemplateRenderer";
+import { getTemplateParameterNames } from "../../utils/templateUtils";
 
 const GeneratorPage = () => {
   const [mode, setMode] = useState(GeneratorMode.Basic);
   const [template, setTemplate] = useState<string>(null);
+  const [templateParameterNames, setTemplateParameterNames] = useState<
+    string[]
+  >([]);
 
   useEffect(() => {
-    console.log("Mode changed: ", mode);
-  }, [mode]);
+    if (!template) return undefined;
+    const parameterNames = getTemplateParameterNames(template);
+    console.log(parameterNames);
+    setTemplateParameterNames(parameterNames);
+  }, [template]);
 
   return (
     <div className="grid">
@@ -27,7 +34,7 @@ const GeneratorPage = () => {
           options={[
             {
               name: "Basic Template",
-              value: "src/templates/basic-template.html",
+              value: "basic-template.html",
             },
           ]}
           optionLabel="name"
@@ -35,7 +42,13 @@ const GeneratorPage = () => {
         />
       </div>
       <div className="col flex justify-content-center align-content-center flex-wrap">
-        <TemplateRenderer template={template} />
+        <TemplateRenderer
+          templateName={template}
+          templateProps={{
+            title: "Joker",
+            description: "Joker card description",
+          }}
+        />
       </div>
     </div>
   );
