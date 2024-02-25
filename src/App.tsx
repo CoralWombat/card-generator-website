@@ -9,16 +9,19 @@ import { MenuItem } from "primereact/menuitem";
 const App = () => {
   const items: MenuItem[] = [
     {
+      id: "home-menu-button",
       label: "Home",
       icon: "pi pi-home",
       url: "/",
     },
     {
+      id: "generator-menu-button",
       label: "Generator",
       icon: "pi pi-file-edit",
       url: "/generator",
     },
     {
+      id: "how-to-menu-button",
       label: "How To",
       icon: "pi pi-question-circle",
       url: "/how-to",
@@ -26,13 +29,15 @@ const App = () => {
   ];
   return (
     <BrowserRouter>
-      <Menubar model={items} />
+      <div className="flex flex-column gap-1">
+        <Menubar model={items} />
 
-      <Routes>
-        <Route path="/" element={<HomePage />} />
-        <Route path="/generator" element={<GeneratorPage />} />
-        <Route path="/how-to" element={<HowToPage />} />
-      </Routes>
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/generator" element={<GeneratorPage />} />
+          <Route path="/how-to" element={<HowToPage />} />
+        </Routes>
+      </div>
     </BrowserRouter>
   );
 };
