@@ -3,7 +3,10 @@ import { GeneratorMode } from "../../model/GeneratorMode";
 import { InputSwitch } from "primereact/inputswitch";
 import { Dropdown } from "primereact/dropdown";
 import TemplateRenderer from "../../components/TemplateRenderer/TemplateRenderer";
-import { getTemplateParameterNames } from "../../utils/templateUtils";
+import {
+  getTemplateByName,
+  getTemplateParameterNames,
+} from "../../utils/templateUtils";
 
 const GeneratorPage = () => {
   const [mode, setMode] = useState(GeneratorMode.Basic);
@@ -30,7 +33,7 @@ const GeneratorPage = () => {
         />
         <Dropdown
           value={template}
-          onChange={(e) => setTemplate(e.value)}
+          onChange={(e) => setTemplate(getTemplateByName(e.value))}
           options={[
             {
               name: "Basic Template",
@@ -43,7 +46,7 @@ const GeneratorPage = () => {
       </div>
       <div className="col flex justify-content-center align-content-center flex-wrap">
         <TemplateRenderer
-          templateName={template}
+          template={template}
           templateProps={{
             title: "Joker",
             description: "Joker card description",

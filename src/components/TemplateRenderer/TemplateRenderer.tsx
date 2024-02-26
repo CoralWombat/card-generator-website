@@ -1,19 +1,15 @@
-import { getTemplateByName } from "../../utils/templateUtils";
-
 const Mustache = require("mustache");
 
 type TemplateRendererProps = {
-  templateName: string;
+  template: string;
   templateProps?: any;
 };
 
 const TemplateRenderer = ({
-  templateName,
+  template,
   templateProps,
 }: TemplateRendererProps) => {
-  if (!templateName) return null;
-
-  const template = getTemplateByName(templateName);
+  if (!template) return null;
 
   const output = Mustache.render(template, templateProps);
   console.log(output);
