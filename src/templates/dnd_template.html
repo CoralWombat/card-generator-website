@@ -38,12 +38,18 @@
 		.description {
 			grid-row-start: 3;
 			overflow: hidden;
+			background-color: dimgray;
 			font-size: {{Description_Scale}}rem;
+			display: flex;
+			justify-content: center;
+			align-items: center;
 		}
 	</style>
 	<div id="header">
 		<div class="card-element">{{Title}}</div>
 		<div class="card-element">{{Level}}</div>
 	</div>
-    <div class="card-element description">{{Description}}</div>
+    <div class="card-element description">
+		<div>{{Description}}</div>
+	</div>
 </div>
