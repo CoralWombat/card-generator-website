@@ -20,11 +20,12 @@ const TemplateForm = ({ template, onParametersChange }: TemplateFormProps) => {
   }, [parameters]);
 
   return (
-    <div id="template-form">
+    <div id="template-form" className="flex flex-column gap-4 pt-4">
       {templateParameterNames.map((parameterName) => {
         return (
           <span className="p-float-label">
             <InputText
+              className="w-full"
               id={parameterName}
               value={parameters[parameterName]}
               onChange={(e) =>

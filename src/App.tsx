@@ -29,7 +29,7 @@ const App = () => {
   ];
   return (
     <BrowserRouter>
-      <div className="flex flex-column gap-1">
+      <div className="flex flex-column gap-3">
         <Menubar model={items} />
 
         <Routes>

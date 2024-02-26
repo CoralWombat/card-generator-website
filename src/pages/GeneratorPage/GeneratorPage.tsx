@@ -5,6 +5,7 @@ import { Dropdown } from "primereact/dropdown";
 import TemplateRenderer from "../../components/TemplateRenderer/TemplateRenderer";
 import { getTemplateByName } from "../../utils/templateUtils";
 import TemplateForm from "../../components/TemplateForm/TemplateForm";
+import { Divider } from "primereact/divider";
 
 type TemplateOption = {
   label: string;
@@ -36,7 +37,7 @@ const GeneratorPage = () => {
 
   return (
     <div className="grid">
-      <div className="col flex flex-column gap-1">
+      <div className="col-offset-2 col-4 flex flex-column gap-1">
         <InputSwitch
           checked={mode === GeneratorMode.Advanced}
           onChange={(e: { value: any }) => {
@@ -57,12 +58,14 @@ const GeneratorPage = () => {
           }
         />
       </div>
-      <div className="col flex justify-content-center align-content-center flex-wrap">
+      <Divider layout="vertical" />
+      <div className="col-4 flex justify-content-start align-content-center flex-wrap">
         <TemplateRenderer
           template={template}
           templateParameters={templateParameters}
         />
       </div>
+      <Divider />
     </div>
   );
 };
