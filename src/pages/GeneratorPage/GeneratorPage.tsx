@@ -21,6 +21,10 @@ const templateOptions: TemplateOption[] = [
     label: "Basic Template 2",
     name: "basic-template-2.html",
   },
+  {
+    label: "D&D",
+    name: "dnd_template.html",
+  },
 ];
 
 const GeneratorPage = () => {

@@ -12,7 +12,6 @@ const TemplateRenderer = ({
   if (!template) return null;
 
   const output = Mustache.render(template, templateParameters);
-  console.log(output);
 
   return <div id="card-preview" dangerouslySetInnerHTML={{ __html: output }} />;
 };
