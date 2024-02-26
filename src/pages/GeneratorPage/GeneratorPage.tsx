@@ -3,24 +3,36 @@ import { GeneratorMode } from "../../model/GeneratorMode";
 import { InputSwitch } from "primereact/inputswitch";
 import { Dropdown } from "primereact/dropdown";
 import TemplateRenderer from "../../components/TemplateRenderer/TemplateRenderer";
-import {
-  getTemplateByName,
-  getTemplateParameterNames,
-} from "../../utils/templateUtils";
+import { getTemplateByName } from "../../utils/templateUtils";
+import TemplateForm from "../../components/TemplateForm/TemplateForm";
+
+type TemplateOption = {
+  label: string;
+  name: string;
+};
+
+const templateOptions: TemplateOption[] = [
+  {
+    label: "Basic Template",
+    name: "basic-template.html",
+  },
+  {
+    label: "Basic Template 2",
+    name: "basic-template-2.html",
+  },
+];
 
 const GeneratorPage = () => {
   const [mode, setMode] = useState(GeneratorMode.Basic);
+  const [selectedTemplateOption, setSelectedTemplateOption] =
+    useState<TemplateOption>(null);
   const [template, setTemplate] = useState<string>(null);
-  const [templateParameterNames, setTemplateParameterNames] = useState<
-    string[]
-  >([]);
+  const [templateParameters, setTemplateParameters] = useState<any>({});
 
   useEffect(() => {
-    if (!template) return undefined;
-    const parameterNames = getTemplateParameterNames(template);
-    console.log(parameterNames);
-    setTemplateParameterNames(parameterNames);
-  }, [template]);
+    if (!selectedTemplateOption) return undefined;
+    setTemplate(getTemplateByName(selectedTemplateOption.name));
+  }, [selectedTemplateOption]);
 
   return (
     <div className="grid">
@@ -32,25 +44,23 @@ const GeneratorPage = () => {
           }}
         />
         <Dropdown
-          value={template}
-          onChange={(e) => setTemplate(getTemplateByName(e.value))}
-          options={[
-            {
-              name: "Basic Template",
-              value: "basic-template.html",
-            },
-          ]}
-          optionLabel="name"
+          value={selectedTemplateOption}
+          onChange={(e) => setSelectedTemplateOption(e.value)}
+          options={templateOptions}
+          optionLabel="label"
           placeholder="Select Template"
+        />
+        <TemplateForm
+          template={template}
+          onParametersChange={(newParameters: any) =>
+            setTemplateParameters(newParameters)
+          }
         />
       </div>
       <div className="col flex justify-content-center align-content-center flex-wrap">
         <TemplateRenderer
           template={template}
-          templateProps={{
-            title: "Joker",
-            description: "Joker card description",
-          }}
+          templateParameters={templateParameters}
         />
       </div>
     </div>

@@ -2,16 +2,16 @@ const Mustache = require("mustache");
 
 type TemplateRendererProps = {
   template: string;
-  templateProps?: any;
+  templateParameters?: Object;
 };
 
 const TemplateRenderer = ({
   template,
-  templateProps,
+  templateParameters,
 }: TemplateRendererProps) => {
   if (!template) return null;
 
-  const output = Mustache.render(template, templateProps);
+  const output = Mustache.render(template, templateParameters);
   console.log(output);
 
   return <div id="card-preview" dangerouslySetInnerHTML={{ __html: output }} />;
