@@ -10,9 +10,8 @@ type TemplateFormProps = {
 const TemplateForm = ({ template, onParametersChange }: TemplateFormProps) => {
   if (!template) return undefined;
 
-  const [templateParameterNames, setTemplateParameterNames] = useState<
-    string[]
-  >(getTemplateParameterNames(template));
+  const templateParameterNames = getTemplateParameterNames(template);
+
   const [parameters, setParameters] = useState<any>({});
 
   useEffect(() => {
