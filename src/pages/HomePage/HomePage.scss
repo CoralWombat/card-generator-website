@@ -1,0 +1,42 @@
+h1 {
+  font-size: 6rem;
+  background: -webkit-linear-gradient(
+    130deg,
+    #7fb069,
+    #5b507a,
+    #e6aa68,
+    #ca3c25,
+    #1d1a05
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.rainbow {
+  font-size: 1.5rem;
+}
+.rainbow_text_animated {
+  background: linear-gradient(
+    to right,
+    #7fb069,
+    #5b507a,
+    #e6aa68,
+    #ca3c25,
+    #1d1a05
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: rainbow_animation 6s ease-in-out infinite;
+  background-size: 400% 100%;
+}
+
+@keyframes rainbow_animation {
+  0%,
+  100% {
+    background-position: 0 0;
+  }
+
+  50% {
+    background-position: 100% 0;
+  }
+}

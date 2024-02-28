@@ -6,7 +6,7 @@ const Footer = ({}) => {
     <div className="no-print">
       <Divider />
       <div id="footer" className="pb-4 pt-2 px-6">
-        {`Card Generator Website, created by ${process.env.APP_AUTHOR}.`}
+        {`Cad of Cards, created by ${process.env.APP_AUTHOR}.`}
         <br />
         {`Copyright © 2024. All Rights Reserved.`}
         <br />
