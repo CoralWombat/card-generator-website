@@ -1,7 +1,5 @@
 import "./GeneratorPage.scss";
 import { useEffect, useState } from "react";
-import { GeneratorMode } from "../../model/GeneratorMode";
-import { InputSwitch } from "primereact/inputswitch";
 import { Dropdown } from "primereact/dropdown";
 import TemplateRenderer from "../../components/TemplateRenderer/TemplateRenderer";
 import { getTemplateByName } from "../../utils/templateUtils";
@@ -32,7 +30,6 @@ const templateOptions: TemplateOption[] = [
 ];
 
 const GeneratorPage = () => {
-  const [mode, setMode] = useState(GeneratorMode.Basic);
   const [selectedTemplateOption, setSelectedTemplateOption] =
     useState<string>(null);
   const [template, setTemplate] = useState<string>(null);
@@ -47,12 +44,6 @@ const GeneratorPage = () => {
   return (
     <div className="grid">
       <div className="no-print col-offset-2 col-4 flex flex-column gap-4">
-        <InputSwitch
-          checked={mode === GeneratorMode.Advanced}
-          onChange={(e: { value: any }) => {
-            setMode(e.value ? GeneratorMode.Advanced : GeneratorMode.Basic);
-          }}
-        />
         <Dropdown
           value={selectedTemplateOption}
           onChange={(e) => setSelectedTemplateOption(e.value)}
