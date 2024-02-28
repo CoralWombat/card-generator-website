@@ -44,15 +44,6 @@ const GeneratorPage = () => {
     setTemplate(getTemplateByName(selectedTemplateOption));
   }, [selectedTemplateOption]);
 
-  const onAddToPrintClick = () => {
-    const newCards = [...cards];
-    newCards.push({
-      template: template,
-      templateParameters: templateParameters,
-    });
-    setCards(newCards);
-  };
-
   return (
     <div className="grid">
       <div className="no-print col-offset-2 col-4 flex flex-column gap-4">
@@ -79,9 +70,21 @@ const GeneratorPage = () => {
           />
         )}
         <div className="flex flex-row flex-wrap gap-2 justify-content-center">
-          <Button>Clear Prints</Button>
-          <Button onClick={onAddToPrintClick}>Add To Print</Button>
-          <Button>Print</Button>
+          <Button onClick={() => setCards([])}>Clear Prints</Button>
+          <Button
+            onClick={() =>
+              setCards((prevCards) => [
+                ...prevCards,
+                {
+                  template: template,
+                  templateParameters: templateParameters,
+                },
+              ])
+            }
+          >
+            Add To Print
+          </Button>
+          <Button onClick={() => window.print()}>Print</Button>
         </div>
       </div>
       <Divider className="no-print" layout="vertical" />
