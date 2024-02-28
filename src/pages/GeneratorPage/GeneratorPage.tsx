@@ -81,10 +81,13 @@ const GeneratorPage = () => {
                 },
               ])
             }
+            disabled={!template}
           >
             Add To Print
           </Button>
-          <Button onClick={() => window.print()}>Print</Button>
+          <Button onClick={() => window.print()} disabled={cards.length === 0}>
+            Print
+          </Button>
         </div>
       </div>
       <Divider className="no-print" layout="vertical" />
