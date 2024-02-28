@@ -45,8 +45,6 @@ const GeneratorPage = () => {
   }, [selectedTemplateOption]);
 
   const onAddToPrintClick = () => {
-    console.log("onAddToPrintClick fired");
-
     const newCards = [...cards];
     newCards.push({
       template: template,
