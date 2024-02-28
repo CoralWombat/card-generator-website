@@ -1,3 +1,5 @@
+import "./TemplateRenderer.scss";
+
 const Mustache = require("mustache");
 
 type TemplateRendererProps = {
@@ -13,7 +15,7 @@ const TemplateRenderer = ({
 
   const output = Mustache.render(template, templateParameters);
 
-  return <div id="card-preview" dangerouslySetInnerHTML={{ __html: output }} />;
+  return <div className="card" dangerouslySetInnerHTML={{ __html: output }} />;
 };
 
 export default TemplateRenderer;

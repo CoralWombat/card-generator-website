@@ -8,8 +8,6 @@ type TemplateFormProps = {
 };
 
 const TemplateForm = ({ template, onParametersChange }: TemplateFormProps) => {
-  if (!template) return undefined;
-
   const templateParameterNames = getTemplateParameterNames(template);
 
   const [parameters, setParameters] = useState<any>({});
@@ -22,11 +20,14 @@ const TemplateForm = ({ template, onParametersChange }: TemplateFormProps) => {
     <div id="template-form" className="flex flex-column gap-4 pt-4">
       {templateParameterNames.map((parameterName) => {
         return (
-          <span className="p-float-label">
+          <span
+            className="p-float-label"
+            key={"template-form-" + parameterName}
+          >
             <InputText
               className="w-full"
               id={parameterName}
-              value={parameters[parameterName]}
+              value={parameters[parameterName] || ""}
               onChange={(e) =>
                 setParameters((prevState: any) => ({
                   ...prevState,

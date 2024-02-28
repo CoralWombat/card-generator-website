@@ -1,3 +1,4 @@
+import "./GeneratorPage.scss";
 import { useEffect, useState } from "react";
 import { GeneratorMode } from "../../model/GeneratorMode";
 import { InputSwitch } from "primereact/inputswitch";
@@ -7,6 +8,7 @@ import { getTemplateByName } from "../../utils/templateUtils";
 import TemplateForm from "../../components/TemplateForm/TemplateForm";
 import { Divider } from "primereact/divider";
 import { Button } from "primereact/button";
+import Card from "../../model/Card";
 
 type TemplateOption = {
   label: string;
@@ -31,18 +33,29 @@ const templateOptions: TemplateOption[] = [
 const GeneratorPage = () => {
   const [mode, setMode] = useState(GeneratorMode.Basic);
   const [selectedTemplateOption, setSelectedTemplateOption] =
-    useState<TemplateOption>(null);
+    useState<string>(null);
   const [template, setTemplate] = useState<string>(null);
   const [templateParameters, setTemplateParameters] = useState<any>({});
+  const [cards, setCards] = useState<Card[]>([]);
 
   useEffect(() => {
     if (!selectedTemplateOption) return undefined;
-    setTemplate(getTemplateByName(selectedTemplateOption.name));
+    setTemplate(getTemplateByName(selectedTemplateOption));
   }, [selectedTemplateOption]);
+
+  const onAddToPrintClick = () => {
+    console.log("onAddToPrintClick fired");
+
+    cards.push({
+      template: template,
+      templateParameters: templateParameters,
+    });
+    setCards(cards);
+  };
 
   return (
     <div className="grid">
-      <div className="col-offset-2 col-4 flex flex-column gap-4">
+      <div className="no-print col-offset-2 col-4 flex flex-column gap-4">
         <InputSwitch
           checked={mode === GeneratorMode.Advanced}
           onChange={(e: { value: any }) => {
@@ -54,28 +67,40 @@ const GeneratorPage = () => {
           onChange={(e) => setSelectedTemplateOption(e.value)}
           options={templateOptions}
           optionLabel="label"
+          optionValue="name"
           placeholder="Select Template"
         />
-        <TemplateForm
-          template={template}
-          onParametersChange={(newParameters: any) =>
-            setTemplateParameters(newParameters)
-          }
-        />
+        {template && (
+          <TemplateForm
+            template={template}
+            onParametersChange={(newParameters: any) =>
+              setTemplateParameters(newParameters)
+            }
+          />
+        )}
         <div className="flex flex-row flex-wrap gap-2 justify-content-center">
           <Button>Clear Prints</Button>
-          <Button>Add To Print</Button>
+          <Button onClick={onAddToPrintClick}>Add To Print</Button>
           <Button>Print</Button>
         </div>
       </div>
-      <Divider layout="vertical" />
-      <div className="col-4 flex justify-content-start align-content-center flex-wrap">
+      <Divider className="no-print" layout="vertical" />
+      <div className="no-print col-4 flex justify-content-start align-content-center flex-wrap">
         <TemplateRenderer
           template={template}
           templateParameters={templateParameters}
         />
       </div>
-      <Divider />
+      <Divider className="no-print" />
+      <div className="do-print">
+        {cards.map((card, i) => (
+          <TemplateRenderer
+            key={"card-" + i}
+            template={card.template}
+            templateParameters={card.templateParameters}
+          />
+        ))}
+      </div>
     </div>
   );
 };

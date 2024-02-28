@@ -35,7 +35,7 @@ const App = () => {
   return (
     <BrowserRouter>
       <div className="flex flex-column gap-3">
-        <Menubar model={items} />
+        <Menubar className="no-print" model={items} />
 
         <Routes>
           <Route path="/" element={<HomePage />} />

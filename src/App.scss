@@ -29,3 +29,10 @@
   font-weight: normal;
   font-style: normal;
 }
+
+@media print {
+  .no-print,
+  .no-print * {
+    display: none !important;
+  }
+}
