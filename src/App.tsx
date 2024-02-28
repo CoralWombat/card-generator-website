@@ -27,6 +27,11 @@ const App = () => {
       url: "/how-to",
     },
   ];
+
+  console.log(`Version: ${process.env.APP_VERSION}`);
+  console.log(`Name: ${process.env.APP_NAME}`);
+  console.log(`Author: ${process.env.APP_AUTHOR}`);
+  console.log(`License: ${process.env.APP_LICENSE}`);
   return (
     <BrowserRouter>
       <div className="flex flex-column gap-3">

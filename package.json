@@ -1,15 +1,14 @@
 {
   "name": "card-generator-website",
   "version": "1.0.0",
-  "description": "",
+  "author": "Kristóf Göncző",
+  "license": "UNLICENSED",
   "main": "index.js",
   "scripts": {
     "serve": "webpack serve --mode development",
     "build": "webpack --mode production"
   },
   "keywords": [],
-  "author": "",
-  "license": "ISC",
   "dependencies": {
     "mustache": "^4.2.0",
     "primeflex": "^3.3.1",

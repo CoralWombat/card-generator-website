@@ -1,5 +1,7 @@
+const webpack = require("webpack");
 const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
+const packageJson = require("./package.json");
 
 module.exports = {
   output: {
@@ -9,6 +11,12 @@ module.exports = {
   plugins: [
     new HtmlWebpackPlugin({
       template: "src/index.html", // to import index.html file inside index.js
+    }),
+    new webpack.DefinePlugin({
+      "process.env.APP_VERSION": JSON.stringify(packageJson.version),
+      "process.env.APP_NAME": JSON.stringify(packageJson.name),
+      "process.env.APP_AUTHOR": JSON.stringify(packageJson.author),
+      "process.env.APP_LICENSE": JSON.stringify(packageJson.license),
     }),
   ],
   devServer: {
