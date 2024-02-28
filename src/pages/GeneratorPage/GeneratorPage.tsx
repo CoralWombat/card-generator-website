@@ -46,11 +46,12 @@ const GeneratorPage = () => {
   const onAddToPrintClick = () => {
     console.log("onAddToPrintClick fired");
 
-    cards.push({
+    const newCards = [...cards];
+    newCards.push({
       template: template,
       templateParameters: templateParameters,
     });
-    setCards(cards);
+    setCards(newCards);
   };
 
   return (
@@ -92,7 +93,7 @@ const GeneratorPage = () => {
         />
       </div>
       <Divider className="no-print" />
-      <div className="do-print">
+      <div>
         {cards.map((card, i) => (
           <TemplateRenderer
             key={"card-" + i}
