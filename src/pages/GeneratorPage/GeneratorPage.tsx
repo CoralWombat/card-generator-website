@@ -6,6 +6,7 @@ import TemplateRenderer from "../../components/TemplateRenderer/TemplateRenderer
 import { getTemplateByName } from "../../utils/templateUtils";
 import TemplateForm from "../../components/TemplateForm/TemplateForm";
 import { Divider } from "primereact/divider";
+import { Button } from "primereact/button";
 
 type TemplateOption = {
   label: string;
@@ -41,7 +42,7 @@ const GeneratorPage = () => {
 
   return (
     <div className="grid">
-      <div className="col-offset-2 col-4 flex flex-column gap-1">
+      <div className="col-offset-2 col-4 flex flex-column gap-4">
         <InputSwitch
           checked={mode === GeneratorMode.Advanced}
           onChange={(e: { value: any }) => {
@@ -61,6 +62,11 @@ const GeneratorPage = () => {
             setTemplateParameters(newParameters)
           }
         />
+        <div className="flex flex-row flex-wrap gap-2 justify-content-center">
+          <Button>Clear Prints</Button>
+          <Button>Add To Print</Button>
+          <Button>Print</Button>
+        </div>
       </div>
       <Divider layout="vertical" />
       <div className="col-4 flex justify-content-start align-content-center flex-wrap">
