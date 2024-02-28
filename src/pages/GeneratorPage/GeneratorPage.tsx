@@ -9,6 +9,7 @@ import TemplateForm from "../../components/TemplateForm/TemplateForm";
 import { Divider } from "primereact/divider";
 import { Button } from "primereact/button";
 import Card from "../../model/Card";
+import PrintPreview from "../../components/PrintPreview/PrintPreview";
 
 type TemplateOption = {
   label: string;
@@ -86,22 +87,13 @@ const GeneratorPage = () => {
         </div>
       </div>
       <Divider className="no-print" layout="vertical" />
-      <div className="no-print col-4 flex justify-content-start align-content-center flex-wrap">
-        <TemplateRenderer
-          template={template}
-          templateParameters={templateParameters}
-        />
-      </div>
+      <TemplateRenderer
+        className="no-print col-4 flex justify-content-start align-content-center flex-wrap"
+        template={template}
+        templateParameters={templateParameters}
+      />
       <Divider className="no-print" />
-      <div>
-        {cards.map((card, i) => (
-          <TemplateRenderer
-            key={"card-" + i}
-            template={card.template}
-            templateParameters={card.templateParameters}
-          />
-        ))}
-      </div>
+      <PrintPreview cards={cards} />
     </div>
   );
 };
