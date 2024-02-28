@@ -5,6 +5,7 @@ import GeneratorPage from "./pages/GeneratorPage/GeneratorPage";
 import HowToPage from "./pages/HowToPage/HowToPage";
 import { Menubar } from "primereact/menubar";
 import { MenuItem } from "primereact/menuitem";
+import Footer from "./components/Footer/Footer";
 
 const App = () => {
   const items: MenuItem[] = [
@@ -28,10 +29,6 @@ const App = () => {
     },
   ];
 
-  console.log(`Version: ${process.env.APP_VERSION}`);
-  console.log(`Name: ${process.env.APP_NAME}`);
-  console.log(`Author: ${process.env.APP_AUTHOR}`);
-  console.log(`License: ${process.env.APP_LICENSE}`);
   return (
     <BrowserRouter>
       <div className="flex flex-column gap-3">
@@ -42,6 +39,8 @@ const App = () => {
           <Route path="/generator" element={<GeneratorPage />} />
           <Route path="/how-to" element={<HowToPage />} />
         </Routes>
+
+        <Footer />
       </div>
     </BrowserRouter>
   );
