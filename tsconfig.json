@@ -11,7 +11,8 @@
         "strictNullChecks": false,
         "strict": true,
         "allowSyntheticDefaultImports": true,
-        "moduleResolution": "node"
+        "moduleResolution": "node",
+        "module": "esnext"
     },
     "exclude": [
         "dist",

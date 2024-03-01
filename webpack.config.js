@@ -6,7 +6,18 @@ const packageJson = require("./package.json");
 module.exports = {
   output: {
     path: path.join(__dirname, "/dist"), // the bundle output path
-    filename: "bundle.js", // the name of the bundle
+    filename: "[name].bundle.js", // the name of the bundle
+    clean: true,
+  },
+  devServer: {
+    port: 3030, // you can change the port
+    historyApiFallback: true,
+  },
+  resolve: {
+    extensions: ["*", ".js", ".jsx", ".ts", ".tsx"],
+  },
+  optimization: {
+    usedExports: true,
   },
   plugins: [
     new HtmlWebpackPlugin({
@@ -19,13 +30,6 @@ module.exports = {
       "process.env.APP_LICENSE": JSON.stringify(packageJson.license),
     }),
   ],
-  devServer: {
-    port: 3030, // you can change the port
-    historyApiFallback: true,
-  },
-  resolve: {
-    extensions: ["*", ".js", ".jsx", ".ts", ".tsx"],
-  },
   module: {
     rules: [
       {

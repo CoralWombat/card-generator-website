@@ -1,11 +1,13 @@
 import "./App.scss";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import HomePage from "./pages/HomePage/HomePage";
-import GeneratorPage from "./pages/GeneratorPage/GeneratorPage";
-import HowToPage from "./pages/HowToPage/HowToPage";
 import { Menubar } from "primereact/menubar";
 import { MenuItem } from "primereact/menuitem";
 import Footer from "./components/Footer/Footer";
+import { lazy } from "react";
+
+const HomePage = lazy(() => import("./pages/HomePage/HomePage"));
+const GeneratorPage = lazy(() => import("./pages/GeneratorPage/GeneratorPage"));
+const HowToPage = lazy(() => import("./pages/HowToPage/HowToPage"));
 
 const App = () => {
   const items: MenuItem[] = [

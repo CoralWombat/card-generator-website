@@ -4,6 +4,7 @@
   "author": "Kristóf Göncző",
   "license": "UNLICENSED",
   "main": "index.js",
+  "sideEffects": false,
   "scripts": {
     "serve": "webpack serve --mode development",
     "build": "webpack --mode production"
