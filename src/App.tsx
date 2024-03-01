@@ -4,6 +4,7 @@ import { Menubar } from "primereact/menubar";
 import { MenuItem } from "primereact/menuitem";
 import Footer from "./components/Footer/Footer";
 import { lazy } from "react";
+import { PrimeIcons } from "primereact/api";
 
 const HomePage = lazy(() => import("./pages/HomePage/HomePage"));
 const GeneratorPage = lazy(() => import("./pages/GeneratorPage/GeneratorPage"));
@@ -14,19 +15,19 @@ const App = () => {
     {
       id: "home-menu-button",
       label: "Home",
-      icon: "pi pi-home",
+      icon: PrimeIcons.HOME,
       url: "/",
     },
     {
       id: "generator-menu-button",
       label: "Generator",
-      icon: "pi pi-file-edit",
+      icon: PrimeIcons.FILE,
       url: "/generator",
     },
     {
       id: "how-to-menu-button",
       label: "How To",
-      icon: "pi pi-question-circle",
+      icon: PrimeIcons.QUESTION_CIRCLE,
       url: "/how-to",
     },
   ];
