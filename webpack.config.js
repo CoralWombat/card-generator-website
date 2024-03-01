@@ -3,6 +3,9 @@ const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const packageJson = require("./package.json");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const TerserPlugin = require("terser-webpack-plugin");
+const BundleAnalyzerPlugin =
+  require("webpack-bundle-analyzer").BundleAnalyzerPlugin;
 
 module.exports = {
   output: {
@@ -18,7 +21,12 @@ module.exports = {
     extensions: ["*", ".js", ".jsx", ".ts", ".tsx"],
   },
   optimization: {
+    minimize: true,
+    minimizer: [new TerserPlugin()],
     usedExports: true,
+    splitChunks: {
+      chunks: "all",
+    },
   },
   plugins: [
     new HtmlWebpackPlugin({
@@ -31,6 +39,7 @@ module.exports = {
       "process.env.APP_LICENSE": JSON.stringify(packageJson.license),
     }),
     new MiniCssExtractPlugin(),
+    new BundleAnalyzerPlugin(),
   ],
   module: {
     rules: [
