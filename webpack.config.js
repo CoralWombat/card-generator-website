@@ -2,6 +2,7 @@ const webpack = require("webpack");
 const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const packageJson = require("./package.json");
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
 module.exports = {
   output: {
@@ -29,6 +30,7 @@ module.exports = {
       "process.env.APP_AUTHOR": JSON.stringify(packageJson.author),
       "process.env.APP_LICENSE": JSON.stringify(packageJson.license),
     }),
+    new MiniCssExtractPlugin(),
   ],
   module: {
     rules: [
@@ -41,7 +43,12 @@ module.exports = {
       },
       {
         test: /\.(sa|sc|c)ss$/, // styles files
-        use: ["style-loader", "css-loader", "sass-loader"],
+        use: [
+          MiniCssExtractPlugin.loader,
+          "style-loader",
+          "css-loader",
+          "sass-loader",
+        ],
       },
       {
         test: /\.(png|woff|woff2|eot|ttf|svg)$/, // to import images and fonts
