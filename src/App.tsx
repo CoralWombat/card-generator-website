@@ -2,7 +2,6 @@ import "./App.scss";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { MenuItem } from "primereact/menuitem";
 import { lazy } from "react";
-import { PrimeIcons } from "primereact/api";
 
 const Menubar = lazy(() =>
   import("primereact/menubar").then((module) => ({ default: module.Menubar }))
@@ -17,19 +16,16 @@ const App = () => {
     {
       id: "home-menu-button",
       label: "Home",
-      icon: PrimeIcons.HOME,
       url: "/",
     },
     {
       id: "generator-menu-button",
       label: "Generator",
-      icon: PrimeIcons.FILE,
       url: "/generator",
     },
     {
       id: "how-to-menu-button",
       label: "How To",
-      icon: PrimeIcons.QUESTION_CIRCLE,
       url: "/how-to",
     },
   ];
