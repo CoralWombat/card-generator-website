@@ -2,10 +2,10 @@ import { TabPanel, TabView } from "primereact/tabview";
 
 const HowToPage = () => {
   return (
-    <div className="grid">
-      <TabView className="col-offset-2 col-8">
+    <div className="flex flex-wrap flex-col justify-center content-center items-center">
+      <TabView className="max-w-screen-xl">
         <TabPanel header="Basic Mode">
-          <p className="m-0">
+          <p>
             The basic mode serves as a delightful demo, a sneak peek into the
             world of personalized cards. While it doesn’t encompass the full
             range of features, it’s perfect for quick experimentation and
