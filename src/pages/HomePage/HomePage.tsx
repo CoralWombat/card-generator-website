@@ -2,13 +2,13 @@ import "./HomePage.scss";
 
 const HomePage = () => {
   return (
-    <div className="text-center flex flex-column justify-content-center align-content-center flex-wrap">
+    <div className="text-center flex flex-wrap flex-col justify-center content-center">
       <h1>Cad of Cards</h1>
-      <h2 className="flex justify-content-center flex-wrap gap-2">
+      <h2 className="flex justify-center flex-wrap gap-2">
         <div>{"The website for prototyping your cards "}</div>
-        <div className="rainbow rainbow_text_animated">{"effortlessly"}</div>
+        <div className="rainbow_text_animated">{"effortlessly"}</div>
       </h2>
-      <div className="text-left" style={{ maxWidth: "60rem" }}>
+      <div className="text-left max-w-5xl">
         <p>
           Welcome to Cad of Cards, the ultimate online tool for creating your
           own card games and board games! 🃏🎲👏
