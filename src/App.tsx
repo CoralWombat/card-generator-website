@@ -3,6 +3,8 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { MenuItem } from "primereact/menuitem";
 import { lazy } from "react";
 import Home from "./media/icon/home.svg";
+import FileEdit from "./media/icon/file-edit.svg";
+import QuestionCircle from "./media/icon/question-circle.svg";
 
 const Menubar = lazy(() =>
   import("primereact/menubar").then((module) => ({ default: module.Menubar }))
@@ -20,17 +22,19 @@ const App = () => {
       id: "home-menu-button",
       label: "Home",
       url: "/",
-      icon: () => <Home width={24} height={24} />,
+      icon: () => <Home width={24} height={24} fill="white" />,
     },
     {
       id: "generator-menu-button",
       label: "Generator",
       url: "/generator",
+      icon: () => <FileEdit width={24} height={24} fill="white" />,
     },
     {
       id: "how-to-menu-button",
       label: "How To",
       url: "/how-to",
+      icon: () => <QuestionCircle width={24} height={24} fill="white" />,
     },
   ];
 
