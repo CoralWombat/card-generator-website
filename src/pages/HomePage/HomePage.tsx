@@ -1,14 +1,19 @@
+import DefaultComponentProps from "../../model/DefaultComponentProps";
 import "./HomePage.scss";
 
-const HomePage = () => {
+const HomePage = ({ className }: DefaultComponentProps) => {
   return (
-    <div className="text-center flex flex-wrap flex-col justify-center content-center">
+    <div
+      className={
+        className + " text-center flex flex-wrap flex-col content-center"
+      }
+    >
       <h1>Cad of Cards</h1>
       <h2 className="flex justify-center flex-wrap gap-2">
         <div>{"The website for prototyping your cards "}</div>
         <div className="rainbow_text_animated">{"effortlessly"}</div>
       </h2>
-      <div className="text-left max-w-5xl">
+      <div className="text-left">
         <p>
           Welcome to Cad of Cards, the ultimate online tool for creating your
           own card games and board games! 🃏🎲👏

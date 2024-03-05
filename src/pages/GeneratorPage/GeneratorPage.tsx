@@ -8,11 +8,8 @@ import { Divider } from "primereact/divider";
 import { Button } from "primereact/button";
 import Card from "../../model/Card";
 import PrintPreview from "../../components/PrintPreview/PrintPreview";
-
-type TemplateOption = {
-  label: string;
-  name: string;
-};
+import TemplateOption from "../../model/TemplateOption";
+import DefaultComponentProps from "../../model/DefaultComponentProps";
 
 const templateOptions: TemplateOption[] = [
   {
@@ -29,7 +26,7 @@ const templateOptions: TemplateOption[] = [
   },
 ];
 
-const GeneratorPage = () => {
+const GeneratorPage = ({ className }: DefaultComponentProps) => {
   const [selectedTemplateOption, setSelectedTemplateOption] =
     useState<string>(null);
   const [template, setTemplate] = useState<string>(null);
@@ -42,51 +39,56 @@ const GeneratorPage = () => {
   }, [selectedTemplateOption]);
 
   return (
-    <div className="grid">
-      <div className="no-print col-offset-2 col-4 flex flex-column gap-4">
-        <Dropdown
-          value={selectedTemplateOption}
-          onChange={(e) => setSelectedTemplateOption(e.value)}
-          options={templateOptions}
-          optionLabel="label"
-          optionValue="name"
-          placeholder="Select Template"
-        />
-        {template && (
-          <TemplateForm
-            template={template}
-            onParametersChange={(newParameters: any) =>
-              setTemplateParameters(newParameters)
-            }
+    <div className={className + " flex flex-col w-full"}>
+      <div className="flex flex-row">
+        <div className="no-print flex flex-col gap-4 w-1/2">
+          <Dropdown
+            value={selectedTemplateOption}
+            onChange={(e) => setSelectedTemplateOption(e.value)}
+            options={templateOptions}
+            optionLabel="label"
+            optionValue="name"
+            placeholder="Select Template"
           />
-        )}
-        <div className="flex flex-row flex-wrap gap-2 justify-content-center">
-          <Button onClick={() => setCards([])}>Clear Prints</Button>
-          <Button
-            onClick={() =>
-              setCards((prevCards) => [
-                ...prevCards,
-                {
-                  template: template,
-                  templateParameters: templateParameters,
-                },
-              ])
-            }
-            disabled={!template}
-          >
-            Add To Print
-          </Button>
-          <Button onClick={() => window.print()} disabled={cards.length === 0}>
-            Print
-          </Button>
+          {template && (
+            <TemplateForm
+              template={template}
+              onParametersChange={(newParameters: any) =>
+                setTemplateParameters(newParameters)
+              }
+            />
+          )}
+          <div className="flex flex-row flex-wrap gap-2 justify-center">
+            <Button onClick={() => setCards([])}>Clear Prints</Button>
+            <Button
+              onClick={() =>
+                setCards((prevCards) => [
+                  ...prevCards,
+                  {
+                    template: template,
+                    templateParameters: templateParameters,
+                  },
+                ])
+              }
+              disabled={!template}
+            >
+              Add To Print
+            </Button>
+            <Button
+              onClick={() => window.print()}
+              disabled={cards.length === 0}
+            >
+              Print
+            </Button>
+          </div>
         </div>
+        <Divider className="no-print" layout="vertical" />
+        <TemplateRenderer
+          className="no-print w-1/2 self-center"
+          template={template}
+          templateParameters={templateParameters}
+        />
       </div>
-      <Divider className="no-print" layout="vertical" />
-      <TemplateRenderer
-        className="no-print col-4 flex justify-content-start align-content-center flex-wrap"
-        template={template}
-        templateParameters={templateParameters}
-      />
       <Divider className="no-print" />
       <PrintPreview cards={cards} />
     </div>

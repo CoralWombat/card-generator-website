@@ -1,9 +1,13 @@
 import { Divider } from "primereact/divider";
 import "./Footer.scss";
 
-const Footer = ({}) => {
+type FooterProps = {
+  className?: string;
+};
+
+const Footer = ({ className }: FooterProps) => {
   return (
-    <div className="no-print">
+    <div className={className}>
       <Divider />
       <div id="footer" className="pb-4 pt-2 px-6">
         {`Cad of Cards, created by ${process.env.APP_AUTHOR}.`}

@@ -17,7 +17,7 @@ const TemplateForm = ({ template, onParametersChange }: TemplateFormProps) => {
   }, [parameters]);
 
   return (
-    <div id="template-form" className="flex flex-column gap-4 pt-4">
+    <div id="template-form" className="flex flex-col gap-7 pt-3">
       {templateParameterNames.map((parameterName) => {
         return (
           <span
