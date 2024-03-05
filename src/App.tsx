@@ -2,6 +2,7 @@ import "./App.scss";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { MenuItem } from "primereact/menuitem";
 import { lazy } from "react";
+import Home from "./media/icon/home.svg";
 
 const Menubar = lazy(() =>
   import("primereact/menubar").then((module) => ({ default: module.Menubar }))
@@ -19,6 +20,7 @@ const App = () => {
       id: "home-menu-button",
       label: "Home",
       url: "/",
+      icon: () => <Home width={24} height={24} />,
     },
     {
       id: "generator-menu-button",

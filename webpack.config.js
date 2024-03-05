@@ -54,9 +54,14 @@ module.exports = (env, argv) => {
           use: ["style-loader", "css-loader", "sass-loader"],
         },
         {
-          test: /\.(png|woff|woff2|eot|ttf|svg)$/, // to import images and fonts
+          test: /\.(png|woff|woff2|eot|ttf)$/, // to import images and fonts
           loader: "url-loader",
           options: { limit: false },
+        },
+        {
+          test: /\.svg$/i,
+          issuer: /\.[jt]sx?$/,
+          use: ["@svgr/webpack"],
         },
         {
           test: /\.(ts|tsx)$/, // `ts` and `tsx` files are parsed using `ts-loader`
