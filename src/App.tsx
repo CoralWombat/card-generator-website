@@ -2,9 +2,10 @@ import "./App.scss";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { MenuItem } from "primereact/menuitem";
 import { lazy } from "react";
-import Home from "./media/icon/home.svg";
-import FileEdit from "./media/icon/file-edit.svg";
-import QuestionCircle from "./media/icon/question-circle.svg";
+
+const Home = lazy(() => import("./media/icon/home.svg"));
+const FileEdit = lazy(() => import("./media/icon/file-edit.svg"));
+const QuestionCircle = lazy(() => import("./media/icon/question-circle.svg"));
 
 const Menubar = lazy(() =>
   import("primereact/menubar").then((module) => ({ default: module.Menubar }))
