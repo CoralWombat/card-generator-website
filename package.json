@@ -15,8 +15,8 @@
   "scripts": {
     "serve": "webpack serve --mode development",
     "serve:tailwind": "npx tailwindcss -i ./tailwind.scss -o ./src/index.scss --watch",
-    "pre-build": "npx tailwindcss -i ./tailwind.scss -o ./src/index.scss",
-    "build": "npm run pre-build && webpack --mode production",
+    "prebuild": "npx tailwindcss -i ./tailwind.scss -o ./src/index.scss",
+    "build": "npm run prebuild && webpack --mode production",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d dist"
   },
