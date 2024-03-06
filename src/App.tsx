@@ -1,5 +1,5 @@
 import "primereact/resources/themes/lara-dark-indigo/theme.css";
-import { BrowserRouter, Link, Route, Routes } from "react-router-dom";
+import { HashRouter, Link, Route, Routes } from "react-router-dom";
 import { MenuItem } from "primereact/menuitem";
 import lazyComponent from "./utils/lazy";
 import { lazy } from "react";
@@ -57,7 +57,7 @@ const pageClassName = "max-w-screen-xl";
 
 const App = () => {
   return (
-    <BrowserRouter>
+    <HashRouter>
       <div className="flex flex-col items-center gap-3 mx-4">
         <Menubar className="no-print w-full" model={items} />
 
@@ -75,7 +75,7 @@ const App = () => {
 
         <Footer className="no-print w-full" />
       </div>
-    </BrowserRouter>
+    </HashRouter>
   );
 };
 
