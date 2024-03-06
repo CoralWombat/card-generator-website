@@ -3,6 +3,11 @@
   "version": "1.0.0",
   "author": "Kristóf Göncző",
   "license": "UNLICENSED",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/CoralWombat/card-generator-website.git"
+  },
+  "homepage": "http://CoralWombat.github.io/card-generator-website",
   "main": "index.js",
   "sideEffects": [
     "*.scss"
@@ -11,7 +16,9 @@
     "serve": "webpack serve --mode development",
     "serve:tailwind": "npx tailwindcss -i ./tailwind.scss -o ./src/index.scss --watch",
     "pre-build": "npx tailwindcss -i ./tailwind.scss -o ./src/index.scss",
-    "build": "npm run pre-build && webpack --mode production"
+    "build": "npm run pre-build && webpack --mode production",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d dist"
   },
   "keywords": [],
   "dependencies": {
@@ -29,6 +36,7 @@
     "@types/react-dom": "^18.2.19",
     "css-loader": "^6.10.0",
     "file-loader": "^6.2.0",
+    "gh-pages": "^6.1.1",
     "html-webpack-plugin": "^5.6.0",
     "raw-loader": "^4.0.2",
     "sass": "^1.71.1",
