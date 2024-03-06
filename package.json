@@ -11,8 +11,7 @@
     "serve": "webpack serve --mode development",
     "serve:tailwind": "npx tailwindcss -i ./tailwind.scss -o ./src/index.scss --watch",
     "pre-build": "npx tailwindcss -i ./tailwind.scss -o ./src/index.scss",
-    "build": "npm run pre-build && webpack --mode production",
-    "build:dev": "webpack --mode development"
+    "build": "npm run pre-build && webpack --mode production"
   },
   "keywords": [],
   "dependencies": {
