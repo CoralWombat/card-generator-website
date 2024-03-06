@@ -32,7 +32,6 @@ module.exports = (env, argv) => {
         template: "src/index.html", // to import index.html file inside index.js
       }),
       new webpack.DefinePlugin({
-        "process.env.APP_PATH": JSON.stringify("card-generator-website"),
         "process.env.APP_VERSION": JSON.stringify(packageJson.version),
         "process.env.APP_NAME": JSON.stringify(packageJson.name),
         "process.env.APP_AUTHOR": JSON.stringify(packageJson.author),

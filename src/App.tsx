@@ -57,7 +57,7 @@ const pageClassName = "max-w-screen-xl";
 
 const App = () => {
   return (
-    <BrowserRouter basename={process.env.APP_PATH}>
+    <BrowserRouter>
       <div className="flex flex-col items-center gap-3 mx-4">
         <Menubar className="no-print w-full" model={items} />
 
