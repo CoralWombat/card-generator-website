@@ -11,7 +11,6 @@ module.exports = (env, argv) => {
       path: path.join(__dirname, "/dist"), // the bundle output path
       filename: "[name].bundle.js", // the name of the bundle
       clean: true,
-      publicPath: "card-generator-website",
     },
     devServer: {
       port: 3030, // you can change the port
