@@ -17,6 +17,7 @@ module.exports = (env, argv) => {
       port: 3030, // you can change the port
       historyApiFallback: true,
     },
+    devtool: argv.mode === "development" ? "source-map" : undefined,
     resolve: {
       extensions: ["*", ".js", ".jsx", ".ts", ".tsx"],
     },
@@ -43,11 +44,9 @@ module.exports = (env, argv) => {
     module: {
       rules: [
         {
-          test: /\.(js|jsx)$/, // .js and .jsx files
-          exclude: /node_modules/, // excluding the node_modules folder
-          use: {
-            loader: "babel-loader",
-          },
+          test: /\.(ts|tsx)$/, // `ts` and `tsx` files are parsed using `ts-loader`
+          loader: "ts-loader",
+          exclude: /node_modules/,
         },
         {
           test: /\.(sa|sc|c)ss$/, // styles files
@@ -62,10 +61,6 @@ module.exports = (env, argv) => {
           test: /\.svg$/i,
           issuer: /\.[jt]sx?$/,
           use: ["@svgr/webpack"],
-        },
-        {
-          test: /\.(ts|tsx)$/, // `ts` and `tsx` files are parsed using `ts-loader`
-          loader: "ts-loader",
         },
         {
           test: /\.(woff|woff2|eot|ttf|otf)$/i,
