@@ -50,7 +50,12 @@ module.exports = (env, argv) => {
         },
         {
           test: /\.(sa|sc|c)ss$/, // styles files
-          use: [MiniCssExtractPlugin.loader, "css-loader", "sass-loader"],
+          use: [
+            MiniCssExtractPlugin.loader,
+            "css-loader",
+            "postcss-loader",
+            "sass-loader",
+          ],
         },
         {
           test: /\.(png|woff|woff2|eot|ttf)$/, // to import images and fonts
