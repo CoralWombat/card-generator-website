@@ -4,6 +4,7 @@ const HtmlWebpackPlugin = require("html-webpack-plugin");
 const packageJson = require("./package.json");
 const BundleAnalyzerPlugin =
   require("webpack-bundle-analyzer").BundleAnalyzerPlugin;
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
 module.exports = (env, argv) => {
   return {
@@ -38,6 +39,7 @@ module.exports = (env, argv) => {
         "process.env.APP_LICENSE": JSON.stringify(packageJson.license),
       }),
       argv.mode === "development" ? new BundleAnalyzerPlugin() : "",
+      new MiniCssExtractPlugin(),
     ],
     module: {
       rules: [
@@ -48,7 +50,7 @@ module.exports = (env, argv) => {
         },
         {
           test: /\.(sa|sc|c)ss$/, // styles files
-          use: ["style-loader", "css-loader", "sass-loader"],
+          use: [MiniCssExtractPlugin.loader, "css-loader", "sass-loader"],
         },
         {
           test: /\.(png|woff|woff2|eot|ttf)$/, // to import images and fonts
