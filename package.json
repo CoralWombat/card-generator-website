@@ -14,9 +14,7 @@
   ],
   "scripts": {
     "serve": "webpack serve --mode development",
-    "serve:tailwind": "npx tailwindcss -i ./tailwind.scss -o ./src/index.scss --watch",
-    "prebuild": "npx tailwindcss -i ./tailwind.scss -o ./src/index.scss",
-    "build": "npm run prebuild && webpack --mode production",
+    "build": "webpack --mode production",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d dist"
   },
@@ -35,6 +33,7 @@
     "@types/react": "^18.2.58",
     "@types/react-dom": "^18.2.19",
     "css-loader": "^6.10.0",
+    "cssnano": "^6.1.0",
     "file-loader": "^6.2.0",
     "gh-pages": "^6.1.1",
     "html-webpack-plugin": "^5.6.0",
