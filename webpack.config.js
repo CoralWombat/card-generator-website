@@ -21,13 +21,6 @@ module.exports = (env, argv) => {
     resolve: {
       extensions: ["*", ".js", ".jsx", ".ts", ".tsx"],
     },
-    optimization: {
-      minimize: true,
-      usedExports: true,
-      splitChunks: {
-        chunks: "all",
-      },
-    },
     plugins: [
       new HtmlWebpackPlugin({
         template: "src/index.html", // to import index.html file inside index.js
@@ -46,7 +39,6 @@ module.exports = (env, argv) => {
         {
           test: /\.(ts|tsx)$/, // `ts` and `tsx` files are parsed using `ts-loader`
           loader: "ts-loader",
-          exclude: /node_modules/,
         },
         {
           test: /\.(sa|sc|c)ss$/, // styles files
