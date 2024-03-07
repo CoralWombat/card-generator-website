@@ -37,11 +37,13 @@ module.exports = (env, argv) => {
     module: {
       rules: [
         {
-          test: /\.(ts|tsx)$/, // `ts` and `tsx` files are parsed using `ts-loader`
+          // `ts` and `tsx`
+          test: /\.(ts|tsx)$/i,
           loader: "ts-loader",
         },
         {
-          test: /\.(sa|sc|c)ss$/, // styles files
+          // css, scss and sass files
+          test: /\.(sa|sc|c)ss$/i,
           use: [
             MiniCssExtractPlugin.loader,
             "css-loader",
@@ -50,22 +52,13 @@ module.exports = (env, argv) => {
           ],
         },
         {
-          test: /\.(png|woff|woff2|eot|ttf)$/, // to import images and fonts
-          loader: "url-loader",
-          options: { limit: false },
+          // html files in templates folder
+          test: /templates.*\.html$/i,
+          loader: "html-loader",
         },
         {
           test: /\.svg$/i,
-          issuer: /\.[jt]sx?$/,
-          use: ["@svgr/webpack"],
-        },
-        {
-          test: /\.(woff|woff2|eot|ttf|otf)$/i,
-          type: "asset/resource",
-        },
-        {
-          test: /\.html$/,
-          use: "raw-loader",
+          loader: "@svgr/webpack",
         },
       ],
     },

@@ -1,4 +1,3 @@
-import "./GeneratorPage.scss";
 import { useEffect, useState } from "react";
 import { Dropdown } from "primereact/dropdown";
 import TemplateRenderer from "../../components/TemplateRenderer/TemplateRenderer";
