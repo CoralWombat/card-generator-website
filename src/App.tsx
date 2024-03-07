@@ -24,7 +24,7 @@ const itemRenderer = (item: MenuItem) => (
     unstable_viewTransition
     className="flex align-items-center p-menuitem-link"
   >
-    <span>{item.icon()}</span>
+    <span className="flex">{item.icon()}</span>
     <span>{item.label}</span>
   </Link>
 );
@@ -34,21 +34,21 @@ const items: MenuItem[] = [
     id: "home-menu-button",
     label: "Home",
     url: "./",
-    icon: () => <Home width={24} height={24} fill="white" />,
+    icon: () => <Home width="1.5rem" height="1.5rem" fill="white" />,
     template: itemRenderer,
   },
   {
     id: "generator-menu-button",
     label: "Generator",
     url: "./generator",
-    icon: () => <FileEdit width={24} height={24} fill="white" />,
+    icon: () => <FileEdit width="1.5rem" height="1.5rem" fill="white" />,
     template: itemRenderer,
   },
   {
     id: "how-to-menu-button",
     label: "How To",
     url: "./how-to",
-    icon: () => <QuestionCircle width={24} height={24} fill="white" />,
+    icon: () => <QuestionCircle width="1.5rem" height="1.5rem" fill="white" />,
     template: itemRenderer,
   },
 ];
