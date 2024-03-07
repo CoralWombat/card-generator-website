@@ -9,17 +9,17 @@ const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 module.exports = (env, argv) => {
   return {
     output: {
-      path: path.join(__dirname, "/dist"), // the bundle output path
-      filename: "[name].bundle.js", // the name of the bundle
+      path: path.join(__dirname, "/dist"),
+      filename: "[name].bundle.js",
       clean: true,
     },
     devServer: {
-      port: 3030, // you can change the port
+      port: 3030,
       historyApiFallback: true,
     },
     devtool: argv.mode === "development" ? "source-map" : undefined,
     resolve: {
-      extensions: ["*", ".js", ".jsx", ".ts", ".tsx"],
+      extensions: [".js", ".ts", ".tsx"],
     },
     plugins: [
       new HtmlWebpackPlugin({
