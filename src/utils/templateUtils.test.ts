@@ -1,5 +1,5 @@
 import "@testing-library/jest-dom";
-import { getTemplateByName, getTemplateParameterNames } from "./templateUtils";
+import { getTemplateParameterNames } from "./templateUtils";
 
 it("gets the template parameter names from template", async () => {
     const param0 = "PARAM_1";
