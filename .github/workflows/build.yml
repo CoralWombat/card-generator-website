@@ -2,44 +2,51 @@ name: Build and deploy
 
 on:
   push:
-    branches: [ "main" ]
+    branches:
+      - main
+      - "release/**"
 
 jobs:
   build:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v4
+      - uses: actions/checkout@v4
 
-    - name: Use Node.js 20
-      uses: actions/setup-node@v4
-      with:
-        node-version: 20
+      - name: Use Node.js 20
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
 
-    - name: Build
-      run: |
-        npm install
-        npm run build
+      - name: Build
+        run: |
+          npm install
+          npm run build
 
-    - name: Upload Build
-      uses: actions/upload-artifact@v4
-      with:
-        name: build
-        path: dist
+      - name: Upload Build
+        uses: actions/upload-artifact@v4
+        with:
+          name: build
+          path: dist
 
   deploy:
     needs: build
     runs-on: ubuntu-latest
-    
+
     steps:
-    - name: Download Build
-      uses: actions/download-artifact@v4
-      with:
-        name: build
-        path: dist
-        
-    - name: Deploy
-      uses: peaceiris/actions-gh-pages@v3
-      with:
-        github_token: ${{ secrets.GITHUB_TOKEN }}
-        publish_dir: dist
+      - name: Use Node.js 20
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Download Build
+        uses: actions/download-artifact@v4
+        with:
+          name: build
+          path: dist
+
+      - name: Deploy
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: dist
