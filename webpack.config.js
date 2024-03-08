@@ -39,7 +39,7 @@ module.exports = (env, argv) => {
         {
           // `ts` and `tsx`
           test: /\.(ts|tsx)$/i,
-          loader: "ts-loader",
+          loader: "babel-loader",
         },
         {
           // css, scss and sass files
