@@ -34,11 +34,6 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Use Node.js 20
-        uses: actions/setup-node@v4
-        with:
-          node-version: 20
-
       - name: Download Build
         uses: actions/download-artifact@v4
         with:
