@@ -29,12 +29,35 @@ jobs:
           name: test
           path: coverage
 
-  build:
+  calculate-version:
     needs: test
+    runs-on: ubuntu-latest
+    outputs:
+      new_tag: ${{ steps.github-tag-action.outputs.new_tag }}
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: "0"
+
+      - name: Bump version and push tag
+        id: github-tag-action
+        uses: anothrNick/github-tag-action@1.67.0
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          WITH_V: false
+
+  build:
+    needs: calculate-version
     runs-on: ubuntu-latest
 
     steps:
       - uses: actions/checkout@v4
+
+      - env:
+          VERSION: ${{needs.calculate-version.outputs.new_tag}}
+        run: echo "$VERSION"
 
       - name: Use Node.js 20
         uses: actions/setup-node@v4
