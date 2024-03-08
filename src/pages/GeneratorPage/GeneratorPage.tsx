@@ -7,23 +7,8 @@ import { Divider } from "primereact/divider";
 import { Button } from "primereact/button";
 import Card from "../../model/Card";
 import PrintPreview from "../../components/PrintPreview/PrintPreview";
-import TemplateOption from "../../model/TemplateOption";
 import DefaultComponentProps from "../../model/DefaultComponentProps";
-
-const templateOptions: TemplateOption[] = [
-  {
-    label: "Basic Template",
-    name: "basic-template.html",
-  },
-  {
-    label: "Basic Template 2",
-    name: "basic-template-2.html",
-  },
-  {
-    label: "D&D",
-    name: "dnd_template.html",
-  },
-];
+import templateOptions from "../../components/constants/TemplateOptions";
 
 const GeneratorPage = ({ className }: DefaultComponentProps) => {
   const [selectedTemplateOption, setSelectedTemplateOption] =
@@ -36,6 +21,14 @@ const GeneratorPage = ({ className }: DefaultComponentProps) => {
     if (!selectedTemplateOption) return undefined;
     setTemplate(getTemplateByName(selectedTemplateOption));
   }, [selectedTemplateOption]);
+
+  useEffect(() => {
+    selectedTemplateOption &&
+      setTemplateParameters(
+        templateOptions.find((option) => option.name === selectedTemplateOption)
+          .defaultValues
+      );
+  }, [template]);
 
   return (
     <div className={className + " flex flex-col w-full"}>
@@ -52,6 +45,7 @@ const GeneratorPage = ({ className }: DefaultComponentProps) => {
           {template && (
             <TemplateForm
               template={template}
+              templateParameters={templateParameters}
               onParametersChange={(newParameters: any) =>
                 setTemplateParameters(newParameters)
               }

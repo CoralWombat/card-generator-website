@@ -4,17 +4,16 @@ import { InputText } from "primereact/inputtext";
 
 type TemplateFormProps = {
   template: string;
+  templateParameters: any;
   onParametersChange: (newParameters: any) => void;
 };
 
-const TemplateForm = ({ template, onParametersChange }: TemplateFormProps) => {
+const TemplateForm = ({
+  template,
+  templateParameters,
+  onParametersChange,
+}: TemplateFormProps) => {
   const templateParameterNames = getTemplateParameterNames(template);
-
-  const [parameters, setParameters] = useState<any>({});
-
-  useEffect(() => {
-    onParametersChange(parameters);
-  }, [parameters]);
 
   return (
     <div id="template-form" className="flex flex-col gap-7 pt-3">
@@ -27,12 +26,12 @@ const TemplateForm = ({ template, onParametersChange }: TemplateFormProps) => {
             <InputText
               className="w-full"
               id={parameterName}
-              value={parameters[parameterName] || ""}
+              value={templateParameters[parameterName] || ""}
               onChange={(e) =>
-                setParameters((prevState: any) => ({
-                  ...prevState,
+                onParametersChange({
+                  ...templateParameters,
                   [parameterName]: e.target.value,
-                }))
+                })
               }
             />
             <label htmlFor={parameterName}>{parameterName}</label>
