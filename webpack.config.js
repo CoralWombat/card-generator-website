@@ -56,7 +56,9 @@ module.exports = (env, argv) => {
           test: /templates.*\.html$/i,
           loader: "html-loader",
           options: {
-            minimize: false,
+            minimize: {
+              minifyCSS: css,
+            },
           },
         },
         {
