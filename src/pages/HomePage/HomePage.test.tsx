@@ -7,5 +7,5 @@ afterEach(cleanup);
 it("renders home page", async () => {
   render(<HomePage />);
 
-  expect(screen.getByText(/Welcome to Cad of Cards/i)).toBeInTheDocument();
+  expect(screen.getByText(/Welcome to CAD of Cards/i)).toBeInTheDocument();
 });

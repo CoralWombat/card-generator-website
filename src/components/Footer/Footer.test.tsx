@@ -7,5 +7,5 @@ afterEach(cleanup);
 it("renders footer", async () => {
   render(<Footer />);
 
-  expect(screen.getByText(/Cad of Cards/i)).toBeInTheDocument();
+  expect(screen.getByText(/CAD of Cards/i)).toBeInTheDocument();
 });
