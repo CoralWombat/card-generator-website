@@ -56,14 +56,15 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - env:
-          VERSION: ${{needs.calculate-version.outputs.new_tag}}
-        run: echo "$VERSION"
-
       - name: Use Node.js 20
         uses: actions/setup-node@v4
         with:
           node-version: 20
+
+      - name: Update version
+        env:
+          VERSION: ${{needs.calculate-version.outputs.new_tag}}
+        run: npm version $VERSION --no-git-tag-version
 
       - name: Build
         run: |
