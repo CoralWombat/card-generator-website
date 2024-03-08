@@ -57,7 +57,7 @@ module.exports = (env, argv) => {
           loader: "html-loader",
           options: {
             minimize: {
-              minifyCSS: css,
+              minifyCSS: false,
             },
           },
         },
