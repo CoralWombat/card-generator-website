@@ -1,4 +1,6 @@
 {
+    "javascript.format.semicolons": "insert",
+    "typescript.format.semicolons": "insert",
     "files.associations": {
         "*.scss": "postcss"
     }
