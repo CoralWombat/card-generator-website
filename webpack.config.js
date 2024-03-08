@@ -24,6 +24,7 @@ module.exports = (env, argv) => {
     plugins: [
       new HtmlWebpackPlugin({
         template: "src/index.html", // to import index.html file inside index.js
+        favicon: "./src/media/icon/favicon.png",
       }),
       new webpack.DefinePlugin({
         "process.env.APP_VERSION": JSON.stringify(packageJson.version),
