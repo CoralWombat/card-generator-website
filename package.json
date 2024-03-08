@@ -12,9 +12,7 @@
   "scripts": {
     "serve": "webpack serve --mode development",
     "test": "jest",
-    "build": "webpack --mode production",
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -d dist"
+    "build": "webpack --mode production"
   },
   "keywords": [],
   "dependencies": {
