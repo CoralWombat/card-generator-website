@@ -1,7 +1,7 @@
 type TemplateOption = {
     label: string;
     name: string;
-    defaultValues?: any;
+    defaultValues: any;
 };
 
 export default TemplateOption;

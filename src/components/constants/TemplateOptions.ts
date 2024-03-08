@@ -4,10 +4,12 @@ const templateOptions: TemplateOption[] = [
     {
         label: "Basic Template",
         name: "basic-template.html",
+        defaultValues: {}
     },
     {
         label: "Basic Template 2",
         name: "basic-template-2.html",
+        defaultValues: {}
     },
     {
         label: "D&D Spell Card",
