@@ -55,6 +55,9 @@ module.exports = (env, argv) => {
           // html files in templates folder
           test: /templates.*\.html$/i,
           loader: "html-loader",
+          options: {
+            minimize: false,
+          },
         },
         {
           test: /\.svg$/i,
