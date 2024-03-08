@@ -4,7 +4,7 @@ import Footer from "./Footer";
 
 afterEach(cleanup);
 
-it("changes the class when hovered", async () => {
+it("renders footer", async () => {
   render(<Footer />);
 
   expect(screen.getByText(/Cad of Cards/i)).toBeInTheDocument();
