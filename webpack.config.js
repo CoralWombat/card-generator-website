@@ -1,10 +1,17 @@
-const webpack = require("webpack");
 const path = require("path");
+const glob = require("glob");
+const webpack = require("webpack");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const packageJson = require("./package.json");
 const BundleAnalyzerPlugin =
   require("webpack-bundle-analyzer").BundleAnalyzerPlugin;
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const { PurgeCSSPlugin } = require("purgecss-webpack-plugin");
+
+const PATHS = {
+  src: path.join(__dirname, "src"),
+  nodeModules: path.join(__dirname, "node_modules"),
+};
 
 module.exports = (env, argv) => {
   return {
@@ -34,6 +41,11 @@ module.exports = (env, argv) => {
       }),
       new BundleAnalyzerPlugin({ analyzerMode: "static", openAnalyzer: false }),
       new MiniCssExtractPlugin(),
+      new PurgeCSSPlugin({
+        paths: glob.sync([`${PATHS.src}/**/*`, `${PATHS.nodeModules}/**/*`], {
+          nodir: true,
+        }),
+      }),
     ],
     module: {
       rules: [
