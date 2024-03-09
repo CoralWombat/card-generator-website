@@ -32,7 +32,7 @@ module.exports = (env, argv) => {
         "process.env.APP_AUTHOR": JSON.stringify(packageJson.author),
         "process.env.APP_LICENSE": JSON.stringify(packageJson.license),
       }),
-      argv.mode === "development" ? new BundleAnalyzerPlugin() : "",
+      new BundleAnalyzerPlugin({ analyzerMode: "static", openAnalyzer: false }),
       new MiniCssExtractPlugin(),
     ],
     module: {
