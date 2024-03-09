@@ -41,6 +41,7 @@ module.exports = (env, argv) => {
           // `ts` and `tsx`
           test: /\.(ts|tsx)$/i,
           loader: "babel-loader",
+          exclude: /node_modules/,
         },
         {
           // css, scss and sass files
