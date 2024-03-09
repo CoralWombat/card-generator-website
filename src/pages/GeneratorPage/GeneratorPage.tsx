@@ -32,8 +32,8 @@ const GeneratorPage = ({ className }: DefaultComponentProps) => {
 
   return (
     <div className={className + " flex flex-col w-full"}>
-      <div className="flex flex-row">
-        <div className="no-print flex flex-col gap-4 w-1/2">
+      <div className="flex flex-row justify-center">
+        <div className="no-print flex flex-col gap-4 w-full">
           <Dropdown
             value={selectedTemplateOption}
             onChange={(e) => setSelectedTemplateOption(e.value)}
@@ -77,7 +77,7 @@ const GeneratorPage = ({ className }: DefaultComponentProps) => {
         </div>
         <Divider className="no-print" layout="vertical" />
         <TemplateRenderer
-          className="no-print w-1/2 self-center"
+          className="no-print w-full self-center"
           template={template}
           templateParameters={templateParameters}
         />

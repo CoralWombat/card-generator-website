@@ -13,7 +13,7 @@ const TemplateRenderer = ({
   template,
   templateParameters,
 }: TemplateRendererProps) => {
-  if (!template) return null;
+  if (!template) return <div className={[className, "card"].join(" ")} />;
 
   const output = Mustache.render(template, templateParameters);
 

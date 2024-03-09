@@ -41,11 +41,16 @@ module.exports = (env, argv) => {
       }),
       new BundleAnalyzerPlugin({ analyzerMode: "static", openAnalyzer: false }),
       new MiniCssExtractPlugin(),
-      new PurgeCSSPlugin({
-        paths: glob.sync([`${PATHS.src}/**/*`, `${PATHS.nodeModules}/**/*`], {
-          nodir: true,
-        }),
-      }),
+      argv.mode === "production"
+        ? new PurgeCSSPlugin({
+            paths: glob.sync(
+              [`${PATHS.src}/**/*`, `${PATHS.nodeModules}/**/*`],
+              {
+                nodir: true,
+              }
+            ),
+          })
+        : "",
     ],
     module: {
       rules: [
