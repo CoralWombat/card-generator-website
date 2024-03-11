@@ -28,8 +28,7 @@ const GeneratorPage = ({ className }: DefaultComponentProps) => {
   );
 
   useEffect(() => {
-    if (!selectedTemplateOption) return undefined;
-    if (customTemplateSelected) {
+    if (!selectedTemplateOption || customTemplateSelected) {
       setTemplate("");
     } else {
       setTemplate(getTemplateByName(selectedTemplateOption));
@@ -72,7 +71,7 @@ const GeneratorPage = ({ className }: DefaultComponentProps) => {
             <span className="p-float-label mt-3">
               <InputTextarea
                 id="custom-template-text-field"
-                className="w-full"
+                className="w-full max-w-full"
                 autoResize
                 value={template}
                 onChange={(e) => setTemplate(e.target.value)}
