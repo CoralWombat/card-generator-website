@@ -1,24 +1,10 @@
 h1 {
-  background: -webkit-linear-gradient(
-    130deg,
-    #7fb069,
-    #5b507a,
-    #e6aa68,
-    #ca3c25,
-    #1d1a05
-  );
+  background: -webkit-linear-gradient(130deg, #0f5257, #a5b4fc, #0b3142);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 .rainbow_text_animated {
-  background: linear-gradient(
-    to right,
-    #7fb069,
-    #5b507a,
-    #e6aa68,
-    #ca3c25,
-    #1d1a05
-  );
+  background: linear-gradient(to right, #0f5257, #a5b4fc, #0b3142);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
