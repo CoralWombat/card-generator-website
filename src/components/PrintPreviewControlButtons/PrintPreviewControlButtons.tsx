@@ -1,8 +1,10 @@
-import { Dispatch, SetStateAction, useRef } from "react";
+import { Dispatch, SetStateAction, lazy, useRef } from "react";
 import { Button } from "primereact/button";
 import { FileUpload, FileUploadHandlerEvent } from "primereact/fileupload";
 import processCsv from "../../utils/csvProcessor";
 import Card from "../../model/Card";
+
+const Home = lazy(() => import("../../media/icon/home.svg"));
 
 type PrintPreviewControlButtonsProps = {
   advancedMode: boolean;
@@ -45,6 +47,7 @@ const PrintPreviewControlButtons = ({
           accept=".csv"
           chooseLabel="Upload Data"
           uploadHandler={onUpload}
+          pt={{ chooseIcon: { className: "hidden" } }}
         />
       )}
       <Button label="Clear Prints" onClick={() => setCards([])} />
