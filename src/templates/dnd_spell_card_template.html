@@ -1,24 +1,33 @@
-<div id="card">
+<div id="safety-zone">
     <style>
-        #card {
-            width: 6.4cm;
-            height: 8.9cm;
+        #safety-zone{
+            width: 6.8cm;
+            height: 9.3cm;
+
+            background-color: black;
+
+            outline-style: dashed;
+            outline-color: gray;
+            outline-width: thin;
+
+            padding: 2mm;
+
             font-size: 12px;
+        }
+        #card {
+            width: 100%;
+            height: 100%;
 
             color: white;
             text-align: center;
 
-            background-color: black;
             background-image: url("{{&Image_Source}}");
             background-position-y: -1cm;
             background-position-x: center;
             background-size: 6.4cm 6.4cm;
             background-repeat: no-repeat;
 
-            border-style: solid;
             border-radius: 3mm;
-            border-width: 1mm;
-            border-color: black;
 
             display: grid;
             grid-template-rows: [row1-start] 1.5em [row1-end] 3.8cm [third-line] auto [fourth-line] 0.5em [last-line]
@@ -73,20 +82,22 @@
         }
 
     </style>
-    <div id="header">
-        <div class="card-element">{{Title}}</div>
-        <div class="card-element">{{Level}}</div>
-    </div>
-    <div id="main-text">
-        <div id="stat-block">
-            <div>{{Casting_Time}}</div>
-            <div>{{Range}}</div>
-            <div>{{Duration}}</div>
-            <div>{{Components}}</div>
-            <div>{{School}}</div>
-            <div>{{Save}}</div>
+    <div id="card">
+        <div id="header">
+            <div class="card-element">{{Title}}</div>
+            <div class="card-element">{{Level}}</div>
         </div>
-        <div id="description">{{Description}}</div>
+        <div id="main-text">
+            <div id="stat-block">
+                <div>{{Casting_Time}}</div>
+                <div>{{Range}}</div>
+                <div>{{Duration}}</div>
+                <div>{{Components}}</div>
+                <div>{{School}}</div>
+                <div>{{Save}}</div>
+            </div>
+            <div id="description">{{Description}}</div>
+        </div>
+        <div id="card-footer">©2024 CAD of Cards</div>
     </div>
-    <div id="card-footer">©2024 CAD of Cards</div>
 </div>
