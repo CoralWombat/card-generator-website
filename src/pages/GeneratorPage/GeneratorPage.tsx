@@ -1,7 +1,6 @@
 import { useEffect, useMemo, useState } from "react";
 import { Dropdown } from "primereact/dropdown";
 import { Divider } from "primereact/divider";
-import { Button } from "primereact/button";
 import { InputSwitch } from "primereact/inputswitch";
 import { InputTextarea } from "primereact/inputtextarea";
 import { getTemplateByName } from "../../utils/templateUtils";
@@ -13,6 +12,7 @@ import PrintPreview from "../../components/PrintPreview/PrintPreview";
 import templateOptions, {
   customTemplateOption,
 } from "../../components/constants/TemplateOptions";
+import PrintPreviewControlButtons from "../../components/PrintPreviewControlButtons/PrintPreviewControlButtons";
 
 const GeneratorPage = ({ className }: DefaultComponentProps) => {
   const [advancedMode, setAdvancedMode] = useState(false);
@@ -90,29 +90,13 @@ const GeneratorPage = ({ className }: DefaultComponentProps) => {
               }
             />
           )}
-          <div className="flex flex-row flex-wrap gap-2 justify-center">
-            <Button onClick={() => setCards([])}>Clear Prints</Button>
-            <Button
-              onClick={() =>
-                setCards((prevCards) => [
-                  ...prevCards,
-                  {
-                    template: template,
-                    templateParameters: templateParameters,
-                  },
-                ])
-              }
-              disabled={!template}
-            >
-              Add To Print
-            </Button>
-            <Button
-              onClick={() => window.print()}
-              disabled={cards.length === 0}
-            >
-              Print
-            </Button>
-          </div>
+          <PrintPreviewControlButtons
+            advancedMode={advancedMode}
+            cards={cards}
+            setCards={setCards}
+            template={template}
+            templateParameters={templateParameters}
+          />
         </div>
         <Divider className="no-print" layout="vertical" />
         <TemplateRenderer
