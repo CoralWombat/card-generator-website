@@ -1,4 +1,6 @@
 .card {
   display: inline-block;
   break-inside: avoid;
+
+  print-color-adjust: exact;
 }
