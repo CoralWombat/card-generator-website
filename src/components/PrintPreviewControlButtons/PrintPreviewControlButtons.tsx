@@ -38,6 +38,7 @@ const PrintPreviewControlButtons = ({
       {advancedMode && (
         <FileUpload
           ref={fileUploadReference}
+          disabled={template === ""}
           auto
           customUpload
           mode="basic"
