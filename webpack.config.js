@@ -41,16 +41,14 @@ module.exports = (env, argv) => {
       }),
       new BundleAnalyzerPlugin({ analyzerMode: "static", openAnalyzer: false }),
       new MiniCssExtractPlugin(),
-      argv.mode === "production"
-        ? new PurgeCSSPlugin({
-            paths: glob.sync(
-              [`${PATHS.src}/**/*`, `${PATHS.nodeModules}/**/*`],
-              {
-                nodir: true,
-              }
-            ),
-          })
-        : "",
+      new PurgeCSSPlugin({
+        paths: glob.sync(
+          [`${PATHS.src}/**/*`, `${PATHS.nodeModules}/primereact/**/*`],
+          {
+            nodir: true,
+          }
+        ),
+      }),
     ],
     module: {
       rules: [
