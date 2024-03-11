@@ -1,5 +1,11 @@
 import TemplateOption from "../../model/TemplateOption";
 
+export const customTemplateOption: TemplateOption = {
+    label: "Custom Template",
+    name: "custom_template",
+    defaultValues: {},
+};
+
 const templateOptions: TemplateOption[] = [
     {
         label: "Basic Template",
