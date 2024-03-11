@@ -1,13 +1,13 @@
 import { useEffect, useState } from "react";
 import { Dropdown } from "primereact/dropdown";
-import TemplateRenderer from "../../components/TemplateRenderer/TemplateRenderer";
-import { getTemplateByName } from "../../utils/templateUtils";
-import TemplateForm from "../../components/TemplateForm/TemplateForm";
 import { Divider } from "primereact/divider";
 import { Button } from "primereact/button";
+import { getTemplateByName } from "../../utils/templateUtils";
 import Card from "../../model/Card";
-import PrintPreview from "../../components/PrintPreview/PrintPreview";
 import DefaultComponentProps from "../../model/DefaultComponentProps";
+import TemplateRenderer from "../../components/TemplateRenderer/TemplateRenderer";
+import TemplateForm from "../../components/TemplateForm/TemplateForm";
+import PrintPreview from "../../components/PrintPreview/PrintPreview";
 import templateOptions from "../../components/constants/TemplateOptions";
 
 const GeneratorPage = ({ className }: DefaultComponentProps) => {
