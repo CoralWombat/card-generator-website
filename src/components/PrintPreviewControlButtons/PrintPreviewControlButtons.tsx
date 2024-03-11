@@ -29,7 +29,7 @@ const PrintPreviewControlButtons = ({
         templateParameters: record,
       };
     });
-    setCards((prevCards) => [...prevCards, ...cards]);
+    setCards((prevCards) => [...cards, ...prevCards]);
     fileUploadReference.current.clear();
   };
 
@@ -51,11 +51,11 @@ const PrintPreviewControlButtons = ({
         label="Add To Print"
         onClick={() =>
           setCards((prevCards) => [
-            ...prevCards,
             {
               template: template,
               templateParameters: templateParameters,
             },
+            ...prevCards,
           ])
         }
         disabled={!template}
