@@ -46,8 +46,9 @@ const PrintPreviewControlButtons = ({
           uploadHandler={onUpload}
         />
       )}
-      <Button onClick={() => setCards([])}>Clear Prints</Button>
+      <Button label="Clear Prints" onClick={() => setCards([])} />
       <Button
+        label="Add To Print"
         onClick={() =>
           setCards((prevCards) => [
             ...prevCards,
@@ -58,12 +59,12 @@ const PrintPreviewControlButtons = ({
           ])
         }
         disabled={!template}
-      >
-        Add To Print
-      </Button>
-      <Button onClick={() => window.print()} disabled={cards.length === 0}>
-        Print
-      </Button>
+      />
+      <Button
+        label="Print"
+        onClick={() => window.print()}
+        disabled={cards.length === 0}
+      />
     </div>
   );
 };
