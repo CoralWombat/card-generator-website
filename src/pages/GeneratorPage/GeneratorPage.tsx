@@ -69,7 +69,7 @@ const GeneratorPage = ({ className }: DefaultComponentProps) => {
             placeholder="Select Template"
           />
           {advancedMode && customTemplateSelected && (
-            <span className="p-float-label">
+            <span className="p-float-label mt-3">
               <InputTextarea
                 id="custom-template-text-field"
                 className="w-full"
