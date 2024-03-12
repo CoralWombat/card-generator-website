@@ -22,7 +22,6 @@ const templateOptions: TemplateOption[] = [
         name: "dnd_spell_card_template.html",
         defaultValues: {
             Image_Source: "https://th.bing.com/th/id/OIG1.0LHNGA6aZmQso9rp9UVy?pid=ImgGn",
-            Description_Scale: 1,
             Title: "Mage Armor",
             Level: "1st",
             Casting_Time: "1 Action",
