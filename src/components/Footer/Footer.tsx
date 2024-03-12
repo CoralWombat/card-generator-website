@@ -13,7 +13,7 @@ const Footer = ({ className }: FooterProps) => {
         <br />
         {`Copyright © 2024. All Rights Reserved.`}
         <br />
-        {`version ${process.env.APP_VERSION} alpha`}
+        {`version ${process.env.APP_VERSION} beta`}
       </div>
     </div>
   );
