@@ -18,7 +18,8 @@ const config: Config = {
     ],
     moduleNameMapper: {
         "^.+\\.(css|less|scss)$": "babel-jest"
-    }
+    },
+    transformIgnorePatterns: ["node_modules/(?!csv-parse)"]
 };
 
 export default config;
