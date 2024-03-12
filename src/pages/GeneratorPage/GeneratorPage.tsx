@@ -15,7 +15,6 @@ import templateOptions, {
 import PrintPreviewControlButtons from "../../components/PrintPreviewControlButtons/PrintPreviewControlButtons";
 
 const GeneratorPage = ({ className }: DefaultComponentProps) => {
-  const [advancedMode, setAdvancedMode] = useState(false);
   const [selectedTemplateOption, setSelectedTemplateOption] =
     useState<string>(null);
   const [template, setTemplate] = useState<string>(null);
@@ -48,26 +47,15 @@ const GeneratorPage = ({ className }: DefaultComponentProps) => {
     <div className={className + " flex flex-col w-full"}>
       <div className="flex flex-row justify-center">
         <div className="no-print flex flex-col gap-4 w-full">
-          <div className="flex flex-row gap-2 items-center">
-            <InputSwitch
-              checked={advancedMode}
-              onChange={(e) => setAdvancedMode(e.value)}
-            />
-            Advanced Mode
-          </div>
           <Dropdown
             value={selectedTemplateOption}
             onChange={(e) => setSelectedTemplateOption(e.value)}
-            options={
-              advancedMode
-                ? [customTemplateOption, ...templateOptions]
-                : templateOptions
-            }
+            options={[customTemplateOption, ...templateOptions]}
             optionLabel="label"
             optionValue="name"
             placeholder="Select Template"
           />
-          {advancedMode && customTemplateSelected && (
+          {customTemplateSelected && (
             <span className="p-float-label mt-3">
               <InputTextarea
                 id="custom-template-text-field"
@@ -90,7 +78,6 @@ const GeneratorPage = ({ className }: DefaultComponentProps) => {
             />
           )}
           <PrintPreviewControlButtons
-            advancedMode={advancedMode}
             cards={cards}
             setCards={setCards}
             template={template}

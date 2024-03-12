@@ -7,7 +7,6 @@ import Card from "../../model/Card";
 const Home = lazy(() => import("../../media/icon/home.svg"));
 
 type PrintPreviewControlButtonsProps = {
-  advancedMode: boolean;
   cards: Card[];
   setCards: Dispatch<SetStateAction<Card[]>>;
   template: string;
@@ -15,7 +14,6 @@ type PrintPreviewControlButtonsProps = {
 };
 
 const PrintPreviewControlButtons = ({
-  advancedMode,
   cards,
   setCards,
   template,
@@ -37,19 +35,17 @@ const PrintPreviewControlButtons = ({
 
   return (
     <div className="flex flex-row flex-wrap gap-2 justify-center">
-      {advancedMode && (
-        <FileUpload
-          ref={fileUploadReference}
-          disabled={template === ""}
-          auto
-          customUpload
-          mode="basic"
-          accept=".csv"
-          chooseLabel="Upload Data"
-          uploadHandler={onUpload}
-          pt={{ chooseIcon: { className: "hidden" } }}
-        />
-      )}
+      <FileUpload
+        ref={fileUploadReference}
+        disabled={template === ""}
+        auto
+        customUpload
+        mode="basic"
+        accept=".csv"
+        chooseLabel="Upload Data"
+        uploadHandler={onUpload}
+        pt={{ chooseIcon: { className: "hidden" } }}
+      />
       <Button label="Clear Prints" onClick={() => setCards([])} />
       <Button
         label="Add To Print"
