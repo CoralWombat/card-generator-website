@@ -8,7 +8,7 @@ const HomePage = ({ className }: DefaultComponentProps) => {
         className + " text-center flex flex-wrap flex-col content-center"
       }
     >
-      <h1 className="text-9xl">CAD of Cards</h1>
+      <h1 id="page-title">CAD of Cards</h1>
       <h2 className="flex justify-center flex-wrap gap-2 text-3xl">
         <div>{"The website for prototyping your cards "}</div>
         <div className="rainbow_text_animated">{"effortlessly"}</div>
