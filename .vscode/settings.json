@@ -3,5 +3,6 @@
     "typescript.format.semicolons": "insert",
     "files.associations": {
         "*.scss": "postcss"
-    }
+    },
+    "jest.runMode": "on-demand"
 }
