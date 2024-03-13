@@ -4,6 +4,7 @@ import { readFileSync, mkdirSync, writeFileSync } from 'fs';
 import { join } from 'path';
 import { get } from 'https';
 import { ok } from 'assert';
+import chroma from 'chroma-js';
 
 Promise.resolve().then(async () => {
     const outputDir = join(process.cwd(), 'badges');
@@ -25,8 +26,9 @@ function getBadgeURL(summary: Summary, key: string) {
     ok(typeof pct === 'number', `Something wrong with the ${key} coverage`);
 
     // https://shields.io/category/coverage
-    const coverage = `${pct}${encodeURI('%')}`;
-    const colour = pct! < 80 ? 'red' : pct! < 90 ? 'yellow' : 'brightgreen';
+    const coverage = `${pct}${encodeURIComponent('%')}`;
+    const f = chroma.scale(['red', 'yellow', '#66FF00']).gamma(2);
+    const colour = `${encodeURIComponent(f(pct / 100).toString())}`;
     const url = `https://img.shields.io/badge/coverage-${coverage}-${colour}?logo=jest`;
 
     return url;
