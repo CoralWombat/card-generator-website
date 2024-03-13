@@ -30,7 +30,7 @@ jobs:
 
       - uses: EndBug/add-and-commit@v9
         with:
-            message: 'Updating badges'
+            message: 'Updating badges ci skip'
             new_branch: test
 
       - name: Upload Build
