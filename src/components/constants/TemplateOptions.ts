@@ -10,12 +10,11 @@ const templateOptions: TemplateOption[] = [
     {
         label: "Basic Template",
         name: "basic-template.html",
-        defaultValues: {}
-    },
-    {
-        label: "Basic Template 2",
-        name: "basic-template-2.html",
-        defaultValues: {}
+        defaultValues: {
+            Image_Source: "https://th.bing.com/th/id/OIG1.D7RIkM1p994fC1T1qVE8?w=1024&h=1024&rs=1&pid=ImgDetMain",
+            Title: "Soft Kitty",
+            Description: "A soft kitty is a gentle and plush feline, often characterized by its fluffy fur and soothing purr.",
+        }
     },
     {
         label: "D&D Spell Card",
