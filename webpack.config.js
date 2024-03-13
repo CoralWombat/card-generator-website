@@ -57,7 +57,6 @@ module.exports = (env, argv) => {
         "process.env.APP_LICENSE": JSON.stringify(packageJson.license),
       }),
       new BundleAnalyzerPlugin({ analyzerMode: "static", openAnalyzer: false }),
-      new MiniCssExtractPlugin(),
       new PurgeCSSPlugin({
         paths: glob.sync(
           [`${PATHS.src}/**/*`, `${PATHS.nodeModules}/primereact/**/*`],
@@ -81,12 +80,7 @@ module.exports = (env, argv) => {
         {
           // css, scss and sass files
           test: /\.(sa|sc|c)ss$/i,
-          use: [
-            MiniCssExtractPlugin.loader,
-            "css-loader",
-            "postcss-loader",
-            "sass-loader",
-          ],
+          use: ["style-loader", "css-loader", "postcss-loader", "sass-loader"],
         },
         {
           // html files in templates folder
