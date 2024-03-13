@@ -1,1 +1,1 @@
-.card{display:inline-block;page-break-inside:avoid;-moz-column-break-inside:avoid;break-inside:avoid;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+.card{-webkit-print-color-adjust:exact;print-color-adjust:exact}.card,.card *{display:inline-block;page-break-inside:avoid;-moz-column-break-inside:avoid;break-inside:avoid}
