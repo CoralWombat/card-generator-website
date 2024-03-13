@@ -7,7 +7,7 @@ type PrintPreviewProps = {
 
 const PrintPreview = ({ cards }: PrintPreviewProps) => {
   return (
-    <div>
+    <div className="flex flex-wrap">
       {cards.map((card, i) => (
         <TemplateRenderer
           key={"card-" + i}
