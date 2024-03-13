@@ -12,7 +12,7 @@
   "scripts": {
     "serve": "webpack serve --mode development",
     "test": "jest",
-    "test:coverage": "npm tsx jest-coverage-badges.ts",
+    "test:coverage": "tsx jest-coverage-badges.ts",
     "build": "webpack --mode production"
   },
   "keywords": [],
