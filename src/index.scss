@@ -2,6 +2,11 @@
 @tailwind components;
 @tailwind utilities;
 
+@import "primereact/resources/themes/lara-dark-indigo/theme.css" screen and
+  (prefers-color-scheme: dark);
+@import "primereact/resources/themes/lara-light-indigo/theme.css" screen and
+  (prefers-color-scheme: light);
+
 @font-face {
   font-family: "Inter var";
   font-weight: 100 900;

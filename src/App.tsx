@@ -1,4 +1,3 @@
-import "primereact/resources/themes/lara-dark-indigo/theme.css";
 import { HashRouter, Link, Route, Routes } from "react-router-dom";
 import { MenuItem } from "primereact/menuitem";
 import { lazyComponent } from "./utils/lazy";
@@ -34,21 +33,39 @@ const items: MenuItem[] = [
     id: "home-menu-button",
     label: "Home",
     url: "./",
-    icon: () => <Home width="1.5rem" height="1.5rem" fill="white" />,
+    icon: () => (
+      <Home
+        width="1.5rem"
+        height="1.5rem"
+        className="fill-black dark:fill-white"
+      />
+    ),
     template: itemRenderer,
   },
   {
     id: "generator-menu-button",
     label: "Generator",
     url: "./generator",
-    icon: () => <FileEdit width="1.5rem" height="1.5rem" fill="white" />,
+    icon: () => (
+      <FileEdit
+        width="1.5rem"
+        height="1.5rem"
+        className="fill-black dark:fill-white"
+      />
+    ),
     template: itemRenderer,
   },
   {
     id: "how-to-menu-button",
     label: "How To",
     url: "./how-to",
-    icon: () => <QuestionCircle width="1.5rem" height="1.5rem" fill="white" />,
+    icon: () => (
+      <QuestionCircle
+        width="1.5rem"
+        height="1.5rem"
+        className="fill-black dark:fill-white"
+      />
+    ),
     template: itemRenderer,
   },
 ];
