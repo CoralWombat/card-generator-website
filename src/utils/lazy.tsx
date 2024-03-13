@@ -1,7 +1,7 @@
 import loadable from "@loadable/component";
 import { ProgressSpinner } from "primereact/progressspinner";
 
-const lazyComponent = (
+export const lazyComponent = (
   load: () => Promise<{
     default: ({ className }: any) => JSX.Element;
   }>
@@ -9,4 +9,12 @@ const lazyComponent = (
   loadable(load, {
     fallback: <ProgressSpinner />,
   });
-export default lazyComponent;
+
+export const lazySvg = (
+  load: () => Promise<{
+    default: ({ className }: any) => any;
+  }>
+) =>
+  loadable(load, {
+    fallback: <ProgressSpinner />,
+  });

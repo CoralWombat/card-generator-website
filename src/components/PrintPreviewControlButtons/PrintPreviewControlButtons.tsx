@@ -1,33 +1,34 @@
-import { Dispatch, SetStateAction, useRef } from "react";
+import { Dispatch, SetStateAction, useContext, useRef } from "react";
 import { Button } from "primereact/button";
 import { FileUpload, FileUploadHandlerEvent } from "primereact/fileupload";
 import processCsv from "../../utils/csvProcessor";
 import Card from "../../model/Card";
+import CardsContext from "../../context/CardsContext";
 
 type PrintPreviewControlButtonsProps = {
-  cards: Card[];
-  setCards: Dispatch<SetStateAction<Card[]>>;
   template: string;
   templateParameters: any;
 };
 
 const PrintPreviewControlButtons = ({
-  cards,
-  setCards,
   template,
   templateParameters,
 }: PrintPreviewControlButtonsProps) => {
+  const [cards, setCards] = useContext(CardsContext);
+
   const fileUploadReference = useRef(null);
 
   const onUpload = async (event: FileUploadHandlerEvent) => {
     const records = await processCsv(event.files[0]);
-    const cards = records.map((record) => {
+    const startIndex = cards.length;
+    const newCards: Card[] = records.map((record, i) => {
       return {
+        id: "card-" + (startIndex + i),
         template: template,
         templateParameters: record,
       };
     });
-    setCards((prevCards) => [...cards, ...prevCards]);
+    setCards((prevCards) => [...newCards, ...prevCards]);
     fileUploadReference.current.clear();
   };
 
@@ -55,6 +56,7 @@ const PrintPreviewControlButtons = ({
         onClick={() =>
           setCards((prevCards) => [
             {
+              id: "card-" + prevCards.length,
               template: template,
               templateParameters: templateParameters,
             },

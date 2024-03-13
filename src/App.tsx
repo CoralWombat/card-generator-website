@@ -1,7 +1,7 @@
 import "primereact/resources/themes/lara-dark-indigo/theme.css";
 import { HashRouter, Link, Route, Routes } from "react-router-dom";
 import { MenuItem } from "primereact/menuitem";
-import lazyComponent from "./utils/lazy";
+import { lazyComponent } from "./utils/lazy";
 import { lazy } from "react";
 
 const Home = lazy(() => import("./media/icon/home.svg"));

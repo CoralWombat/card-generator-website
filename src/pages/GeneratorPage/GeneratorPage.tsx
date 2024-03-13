@@ -1,7 +1,6 @@
 import { useEffect, useMemo, useState } from "react";
 import { Dropdown } from "primereact/dropdown";
 import { Divider } from "primereact/divider";
-import { InputSwitch } from "primereact/inputswitch";
 import { InputTextarea } from "primereact/inputtextarea";
 import { getTemplateByName } from "../../utils/templateUtils";
 import Card from "../../model/Card";
@@ -13,13 +12,15 @@ import templateOptions, {
   customTemplateOption,
 } from "../../components/constants/TemplateOptions";
 import PrintPreviewControlButtons from "../../components/PrintPreviewControlButtons/PrintPreviewControlButtons";
+import CardsContext from "../../context/CardsContext";
 
 const GeneratorPage = ({ className }: DefaultComponentProps) => {
+  const [cards, setCards] = useState<Card[]>([]);
+
   const [selectedTemplateOption, setSelectedTemplateOption] =
     useState<string>(null);
   const [template, setTemplate] = useState<string>(null);
   const [templateParameters, setTemplateParameters] = useState<any>({});
-  const [cards, setCards] = useState<Card[]>([]);
 
   const customTemplateSelected = useMemo(
     () => selectedTemplateOption === customTemplateOption.name,
@@ -44,56 +45,56 @@ const GeneratorPage = ({ className }: DefaultComponentProps) => {
   }, [template]);
 
   return (
-    <div className={className + " flex flex-col w-full"}>
-      <div className="flex flex-row justify-center">
-        <div className="no-print flex flex-col gap-4 w-full">
-          <Dropdown
-            value={selectedTemplateOption}
-            onChange={(e) => setSelectedTemplateOption(e.value)}
-            options={[customTemplateOption, ...templateOptions]}
-            optionLabel="label"
-            optionValue="name"
-            placeholder="Select Template"
-          />
-          {customTemplateSelected && (
-            <span className="p-float-label mt-3">
-              <InputTextarea
-                id="custom-template-text-field"
-                className="w-full max-w-full"
-                autoResize
-                value={template}
-                onChange={(e) => setTemplate(e.target.value)}
-                rows={5}
+    <CardsContext.Provider value={[cards, setCards]}>
+      <div className={className + " flex flex-col w-full"}>
+        <div className="flex flex-row justify-center">
+          <div className="no-print flex flex-col gap-4 w-full">
+            <Dropdown
+              value={selectedTemplateOption}
+              onChange={(e) => setSelectedTemplateOption(e.value)}
+              options={[customTemplateOption, ...templateOptions]}
+              optionLabel="label"
+              optionValue="name"
+              placeholder="Select Template"
+            />
+            {customTemplateSelected && (
+              <span className="p-float-label mt-3">
+                <InputTextarea
+                  id="custom-template-text-field"
+                  className="w-full max-w-full"
+                  autoResize
+                  value={template}
+                  onChange={(e) => setTemplate(e.target.value)}
+                  rows={5}
+                />
+                <label htmlFor="custom-template-text-field">Template</label>
+              </span>
+            )}
+            {template && (
+              <TemplateForm
+                template={template}
+                templateParameters={templateParameters}
+                onParametersChange={(newParameters: any) =>
+                  setTemplateParameters(newParameters)
+                }
               />
-              <label htmlFor="custom-template-text-field">Template</label>
-            </span>
-          )}
-          {template && (
-            <TemplateForm
+            )}
+            <PrintPreviewControlButtons
               template={template}
               templateParameters={templateParameters}
-              onParametersChange={(newParameters: any) =>
-                setTemplateParameters(newParameters)
-              }
             />
-          )}
-          <PrintPreviewControlButtons
-            cards={cards}
-            setCards={setCards}
+          </div>
+          <Divider className="no-print" layout="vertical" />
+          <TemplateRenderer
+            className="no-print w-full self-center"
             template={template}
             templateParameters={templateParameters}
           />
         </div>
-        <Divider className="no-print" layout="vertical" />
-        <TemplateRenderer
-          className="no-print w-full self-center"
-          template={template}
-          templateParameters={templateParameters}
-        />
+        <Divider className="no-print" />
+        <PrintPreview />
       </div>
-      <Divider className="no-print" />
-      <PrintPreview cards={cards} />
-    </div>
+    </CardsContext.Provider>
   );
 };
 
