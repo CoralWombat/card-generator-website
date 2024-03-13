@@ -33,6 +33,22 @@ module.exports = (env, argv) => {
       new HtmlWebpackPlugin({
         template: "src/index.html", // to import index.html file inside index.js
         favicon: "./src/media/icon/favicon.png",
+        meta: {
+          "og:title": { property: "og:title", content: "Forge of Cards" },
+          "og:description": {
+            property: "og:description",
+            content: "The website for prototyping your cards effortlessly.",
+          },
+          "og:type": { property: "og:type", content: "website" },
+          "og:url": {
+            property: "og:url",
+            content: "https://forgeofcards.com/",
+          },
+          "og:image": {
+            property: "og:image",
+            content: "https://forgeofcards.com/favicon.png",
+          },
+        },
       }),
       new webpack.DefinePlugin({
         "process.env.APP_VERSION": JSON.stringify(packageJson.version),
