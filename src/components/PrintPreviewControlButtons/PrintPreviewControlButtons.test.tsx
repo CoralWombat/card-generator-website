@@ -1,15 +1,7 @@
-import {
-  screen,
-  render,
-  cleanup,
-  fireEvent,
-  waitFor,
-} from "@testing-library/react";
-import user from "@testing-library/user-event";
+import { render, cleanup, fireEvent } from "@testing-library/react";
 import "@testing-library/jest-dom";
 import PrintPreviewControlButtons from "./PrintPreviewControlButtons";
-
-import processCsv from "../../utils/csvProcessor";
+import CardsContext from "../../context/CardsContext";
 
 jest.mock("../../utils/csvProcessor"); // this happens automatically with automocking
 
@@ -19,12 +11,9 @@ it("renders PrintPreviewControlButtons", async () => {
   const setCardsMock = jest.fn();
 
   const renderedComponent = render(
-    <PrintPreviewControlButtons
-      cards={[]}
-      setCards={setCardsMock}
-      template={""}
-      templateParameters={{}}
-    />
+    <CardsContext.Provider value={[[], setCardsMock]}>
+      <PrintPreviewControlButtons template={""} templateParameters={{}} />
+    </CardsContext.Provider>
   );
 
   expect(renderedComponent.getByText(/Upload Data/)).toBeInTheDocument();
@@ -43,12 +32,12 @@ it("should enable buttons when there is a teplate", async () => {
   const setCardsMock = jest.fn();
 
   const renderedComponent = render(
-    <PrintPreviewControlButtons
-      cards={[]}
-      setCards={setCardsMock}
-      template={"template"}
-      templateParameters={{}}
-    />
+    <CardsContext.Provider value={[[], setCardsMock]}>
+      <PrintPreviewControlButtons
+        template={"template"}
+        templateParameters={{}}
+      />
+    </CardsContext.Provider>
   );
 
   const uploadDataButton = renderedComponent.getByText(/Upload Data/);
@@ -66,12 +55,9 @@ it("should disable buttons when there is no template", async () => {
   const setCardsMock = jest.fn();
 
   const renderedComponent = render(
-    <PrintPreviewControlButtons
-      cards={[]}
-      setCards={setCardsMock}
-      template={""}
-      templateParameters={{}}
-    />
+    <CardsContext.Provider value={[[], setCardsMock]}>
+      <PrintPreviewControlButtons template={""} templateParameters={{}} />
+    </CardsContext.Provider>
   );
 
   const uploadDataButton = renderedComponent.getByText(/Upload Data/);
@@ -89,12 +75,14 @@ it("should enable buttons when there are cards", async () => {
   const setCardsMock = jest.fn();
 
   const renderedComponent = render(
-    <PrintPreviewControlButtons
-      cards={[{ template: "" }]}
-      setCards={setCardsMock}
-      template={"template"}
-      templateParameters={{}}
-    />
+    <CardsContext.Provider
+      value={[[{ id: "id", template: "template" }], setCardsMock]}
+    >
+      <PrintPreviewControlButtons
+        template={"template"}
+        templateParameters={{}}
+      />
+    </CardsContext.Provider>
   );
 
   const printButton =
@@ -107,12 +95,12 @@ it("should disable buttons when there are no cards", async () => {
   const setCardsMock = jest.fn();
 
   const renderedComponent = render(
-    <PrintPreviewControlButtons
-      cards={[]}
-      setCards={setCardsMock}
-      template={"template"}
-      templateParameters={{}}
-    />
+    <CardsContext.Provider value={[[], setCardsMock]}>
+      <PrintPreviewControlButtons
+        template={"template"}
+        templateParameters={{}}
+      />
+    </CardsContext.Provider>
   );
 
   const printButton =
@@ -125,12 +113,9 @@ it("should call setCards on clicking clear cards", async () => {
   const setCardsMock = jest.fn();
 
   const renderedComponent = render(
-    <PrintPreviewControlButtons
-      cards={[]}
-      setCards={setCardsMock}
-      template={""}
-      templateParameters={{}}
-    />
+    <CardsContext.Provider value={[[], setCardsMock]}>
+      <PrintPreviewControlButtons template={""} templateParameters={{}} />
+    </CardsContext.Provider>
   );
 
   fireEvent.click(
@@ -145,12 +130,12 @@ it("should call setCards on clicking add card", async () => {
   const setCardsMock = jest.fn();
 
   const renderedComponent = render(
-    <PrintPreviewControlButtons
-      cards={[]}
-      setCards={setCardsMock}
-      template={"template"}
-      templateParameters={{}}
-    />
+    <CardsContext.Provider value={[[], setCardsMock]}>
+      <PrintPreviewControlButtons
+        template={"template"}
+        templateParameters={{}}
+      />
+    </CardsContext.Provider>
   );
 
   fireEvent.click(
@@ -165,12 +150,11 @@ it("should print on clicking print", async () => {
   const setCardsMock = jest.fn();
 
   const renderedComponent = render(
-    <PrintPreviewControlButtons
-      cards={[{ template: "" }]}
-      setCards={setCardsMock}
-      template={""}
-      templateParameters={{}}
-    />
+    <CardsContext.Provider
+      value={[[{ id: "id", template: "template" }], setCardsMock]}
+    >
+      <PrintPreviewControlButtons template={""} templateParameters={{}} />
+    </CardsContext.Provider>
   );
 
   fireEvent.click(renderedComponent.container.querySelector("#print-button"));
