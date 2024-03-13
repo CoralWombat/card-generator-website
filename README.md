@@ -5,7 +5,7 @@
 # Forge of Cards
 
 ## Setting Up Local Environment
-To set up your local environment you need to do the following steps:
+To set up your local environment, you need to do the following steps:
 1. Clone the repository
 2. In the root folder, run `npm run install`
 3. To run the localserver, run `npm run serve`
@@ -15,3 +15,8 @@ To set up your local environment you need to do the following steps:
 To analyze the bundle, first run a build, then check the `dist\report.html` file.
 
 To check the test coverage, first run the tests, the check the `coverage\lcov-report\index.html` file.
+
+## Adding New Template
+To add a new template to the templates dropdown in the generate page, you need to do the following steps:
+1. Create a `.html` card as a template using the [Mustache](https://mustache.github.io/) template engine rules
+2. 
