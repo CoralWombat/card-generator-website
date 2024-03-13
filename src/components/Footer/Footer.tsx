@@ -9,7 +9,7 @@ const Footer = ({ className }: FooterProps) => {
     <div className={className}>
       <Divider />
       <div className="text-sm pb-4 pt-2 px-6">
-        {`CAD of Cards, created by ${process.env.APP_AUTHOR}.`}
+        {`Forge of Cards, created by ${process.env.APP_AUTHOR}.`}
         <br />
         {`Copyright © 2024. All Rights Reserved.`}
         <br />
