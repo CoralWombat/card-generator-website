@@ -19,7 +19,8 @@ const config: Config = {
     moduleNameMapper: {
         "^.+\\.(css|less|scss)$": "babel-jest"
     },
-    transformIgnorePatterns: ["node_modules/(?!csv-parse)"]
+    transformIgnorePatterns: ["node_modules/(?!csv-parse)"],
+    coverageReporters: ['json-summary', 'text', 'lcov']
 };
 
 export default config;

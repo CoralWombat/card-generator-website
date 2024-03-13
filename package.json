@@ -12,6 +12,7 @@
   "scripts": {
     "serve": "webpack serve --mode development",
     "test": "jest",
+    "test:coverage": "npm tsx jest-coverage-badges.ts",
     "build": "webpack --mode production"
   },
   "keywords": [],
@@ -53,6 +54,7 @@
     "sass-loader": "^14.1.1",
     "tailwindcss": "^3.4.1",
     "ts-jest": "^29.1.2",
+    "tsx": "^4.7.1",
     "typescript": "^5.3.3",
     "webpack": "^5.90.3",
     "webpack-bundle-analyzer": "^4.10.1",
