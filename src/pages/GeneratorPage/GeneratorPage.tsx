@@ -56,6 +56,7 @@ const GeneratorPage = ({ className }: DefaultComponentProps) => {
               optionLabel="label"
               optionValue="name"
               placeholder="Select Template"
+              scrollHeight="9999px"
             />
             {customTemplateSelected && (
               <span className="p-float-label mt-3">
