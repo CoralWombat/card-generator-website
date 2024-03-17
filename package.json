@@ -7,7 +7,7 @@
     "type": "git",
     "url": "git+https://github.com/CoralWombat/card-generator-website.git"
   },
-  "homepage": "http://cards.kristofgonczo.dev/",
+  "homepage": "https://forgeofcards.com/",
   "main": "index.js",
   "scripts": {
     "serve": "webpack serve --mode development",
