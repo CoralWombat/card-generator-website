@@ -17,6 +17,20 @@ const templateOptions: TemplateOption[] = [
         }
     },
     {
+        label: "Cards Against Mankind - Black",
+        name: "cards-against-mankind-black.html",
+        defaultValues: {
+            Text: "Best card game prototyping website: ______."
+        }
+    },
+    {
+        label: "Cards Against Mankind - White",
+        name: "cards-against-mankind-white.html",
+        defaultValues: {
+            Text: "Forge of Cards"
+        }
+    },
+    {
         label: "D&D Spell Card",
         name: "dnd_spell_card_template.html",
         defaultValues: {
