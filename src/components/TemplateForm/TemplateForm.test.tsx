@@ -18,7 +18,7 @@ const mockGetTemplateParameterNames =
 
 afterEach(cleanup);
 
-it("should render template form", () => {
+it("should render template form", async () => {
   const renderedComponent = render(
     <CardsContext.Provider value={[[], setCardsMock]}>
       <TemplateForm
@@ -33,7 +33,7 @@ it("should render template form", () => {
   expect(renderedComponent.getByText(/parameterName/)).toBeInTheDocument();
 });
 
-it("should call onParametersChange when typing", () => {
+it("should call onParametersChange when typing", async () => {
   const renderedComponent = render(
     <CardsContext.Provider value={[[], setCardsMock]}>
       <TemplateForm
