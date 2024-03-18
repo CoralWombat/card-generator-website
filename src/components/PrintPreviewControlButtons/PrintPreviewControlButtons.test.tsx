@@ -3,7 +3,7 @@ import "@testing-library/jest-dom";
 import PrintPreviewControlButtons from "./PrintPreviewControlButtons";
 import CardsContext from "../../context/CardsContext";
 
-jest.mock("../../utils/csvProcessor"); // this happens automatically with automocking
+jest.mock("../../utils/csvProcessor");
 
 afterEach(cleanup);
 

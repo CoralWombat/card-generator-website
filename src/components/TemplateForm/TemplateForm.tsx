@@ -1,4 +1,3 @@
-import { useEffect, useState } from "react";
 import { getTemplateParameterNames } from "../../utils/templateUtils";
 import { InputText } from "primereact/inputtext";
 
