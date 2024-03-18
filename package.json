@@ -11,7 +11,7 @@
   "main": "index.js",
   "scripts": {
     "serve": "webpack serve --mode development",
-    "test": "jest",
+    "test": "jest --silent",
     "test:coverage": "tsx jest-coverage-badges.ts",
     "build": "webpack --mode production"
   },
