@@ -31,6 +31,11 @@ const templateOptions: TemplateOption[] = [
         }
     },
     {
+        label: "Exploding Cats",
+        name: "exploding-cats.html",
+        defaultValues: {}
+    },
+    {
         label: "D&D Spell Card",
         name: "dnd_spell_card_template.html",
         defaultValues: {
