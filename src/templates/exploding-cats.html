@@ -75,14 +75,14 @@
         style="
           margin-left: auto;
           margin-right: auto;
-          margin-bottom: 2mm;
-          width: 80%;
+          max-width: 80%;
           display: flex;
           align-items: center;
         "
       >
         <div
           style="
+            color: {{Rule_Color}};
             font-size: 2em;
             font-weight: 300;
             position: relative;
@@ -91,9 +91,10 @@
         >
           {
         </div>
-        <div style="font-size: 0.7em">{{Rule}}</div>
+        <div style="font-size: 0.7em; color: {{Rule_Color}};">{{Rule}}</div>
         <div
           style="
+            color: {{Rule_Color}};
             font-size: 2em;
             font-weight: 300;
             position: relative;
@@ -113,10 +114,7 @@
         height: 37px;
       "
     >
-      <img
-        src="https://ek.explodingkittens.com/img/how-to-play/card_icon-skip_x1.png"
-        style="width: 9mm; height: 9mm"
-      />
+      <img src="{{Icon_Source}}" style="width: 9mm; height: 9mm" />
       <div style="display: flex; flex-direction: column">
         <div>{{Title}}</div>
         <div
@@ -135,7 +133,7 @@
           text-orientation: sideways;
           font-size: 0.4em;
           text-align: center;
-          color: #2496cd;
+          color: {{Color}};
           opacity: 50%;
           position: absolute;
           right: -5px;

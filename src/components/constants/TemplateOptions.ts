@@ -36,14 +36,15 @@ const templateOptions: TemplateOption[] = [
         label: "Exploding Cats",
         name: "exploding-cats.html",
         defaultValues: {
-            Title: "Skip",
+            Title: "Play",
             Edition: "Forge of Cards",
-            Rule: "end your turn without drawing a card.",
-            Description: "Engage the hypergoat.",
-            Color: "#2496cd",
+            Rule: "design the best card game",
+            Rule_Color: "black",
+            Description: "by waking inner child",
+            Color: "#81BD7F",
             Icon_Source:
-                "https://ek.explodingkittens.com/img/how-to-play/card_icon-skip_x1.png",
-            Image_Source: 'https://i.ibb.co/ncVM6HW/16299454-1404245856286806-2538536656292917117-n.png'
+                "https://th.bing.com/th/id/OIG3..eIwoYFjnFiG2FnnpzWx?pid=ImgGn",
+            Image_Source: 'https://th.bing.com/th/id/OIG4.2WEzM6iTFyk_NL8q9U_J?pid=ImgGn'
         },
     },
     {
