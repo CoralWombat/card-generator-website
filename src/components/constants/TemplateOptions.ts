@@ -11,35 +11,47 @@ const templateOptions: TemplateOption[] = [
         label: "Basic Template",
         name: "basic-template.html",
         defaultValues: {
-            Image_Source: "https://th.bing.com/th/id/OIG1.D7RIkM1p994fC1T1qVE8?w=1024&h=1024&rs=1&pid=ImgDetMain",
+            Image_Source:
+                "https://th.bing.com/th/id/OIG1.D7RIkM1p994fC1T1qVE8?w=1024&h=1024&rs=1&pid=ImgDetMain",
             Title: "Soft Kitty",
-            Description: "A soft kitty is a gentle and plush feline, often characterized by its fluffy fur and soothing purr.",
-        }
+            Description:
+                "A soft kitty is a gentle and plush feline, often characterized by its fluffy fur and soothing purr.",
+        },
     },
     {
         label: "Cards Against Mankind - Black",
         name: "cards-against-mankind-black.html",
         defaultValues: {
-            Text: "Best card game prototyping website: ______."
-        }
+            Text: "Best card game prototyping website: ______.",
+        },
     },
     {
         label: "Cards Against Mankind - White",
         name: "cards-against-mankind-white.html",
         defaultValues: {
-            Text: "Forge of Cards"
-        }
+            Text: "Forge of Cards",
+        },
     },
     {
         label: "Exploding Cats",
         name: "exploding-cats.html",
-        defaultValues: {}
+        defaultValues: {
+            Title: "Skip",
+            Edition: "Forge of Cards",
+            Rule: "end your turn without drawing a card.",
+            Description: "Engage the hypergoat.",
+            Color: "#2496cd",
+            Icon_Source:
+                "https://ek.explodingkittens.com/img/how-to-play/card_icon-skip_x1.png",
+            Image_Source: 'https://i.ibb.co/ncVM6HW/16299454-1404245856286806-2538536656292917117-n.png'
+        },
     },
     {
         label: "D&D Spell Card",
         name: "dnd_spell_card_template.html",
         defaultValues: {
-            Image_Source: "https://th.bing.com/th/id/OIG1.0LHNGA6aZmQso9rp9UVy?pid=ImgGn",
+            Image_Source:
+                "https://th.bing.com/th/id/OIG1.0LHNGA6aZmQso9rp9UVy?pid=ImgGn",
             Title: "Mage Armor",
             Level: "1st",
             Casting_Time: "1 Action",
@@ -48,8 +60,9 @@ const templateOptions: TemplateOption[] = [
             Components: "V, S, M*",
             School: "Abjuration",
             Save: "None",
-            Description: "You touch a willing creature who isn't wearing armor, and a protective magical force surrounds it until the spell ends. The target's base AC becomes 13 + its Dexterity modifier. The spell ends if the target dons armor or if you dismiss the spell as an action.",
-        }
+            Description:
+                "You touch a willing creature who isn't wearing armor, and a protective magical force surrounds it until the spell ends. The target's base AC becomes 13 + its Dexterity modifier. The spell ends if the target dons armor or if you dismiss the spell as an action.",
+        },
     },
 ];
 
