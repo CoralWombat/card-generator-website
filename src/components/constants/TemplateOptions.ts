@@ -1,4 +1,6 @@
 import TemplateOption from "../../model/TemplateOption";
+import exploding_cats_icon from 'Pictures/exploding_cats_icon.png';
+import exploding_cats_image from 'Pictures/exploding_cats_image.jpg';
 
 export const customTemplateOption: TemplateOption = {
     label: "Custom Template",
@@ -42,9 +44,8 @@ const templateOptions: TemplateOption[] = [
             Rule_Color: "black",
             Description: "by waking inner child",
             Color: "#81BD7F",
-            Icon_Source:
-                "https://th.bing.com/th/id/OIG3..eIwoYFjnFiG2FnnpzWx?pid=ImgGn",
-            Image_Source: 'https://th.bing.com/th/id/OIG4.2WEzM6iTFyk_NL8q9U_J?pid=ImgGn'
+            Icon_Source: exploding_cats_icon,
+            Image_Source: exploding_cats_image
         },
     },
     {

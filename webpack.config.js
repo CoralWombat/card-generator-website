@@ -27,6 +27,9 @@ module.exports = (env, argv) => {
     devtool: argv.mode === "development" ? "source-map" : undefined,
     resolve: {
       extensions: [".js", ".ts", ".tsx"],
+      alias: {
+        Pictures: path.resolve(__dirname, "src/media/pictures/"),
+      },
     },
     plugins: [
       new HtmlWebpackPlugin({
@@ -92,6 +95,10 @@ module.exports = (env, argv) => {
         {
           test: /\.svg$/i,
           loader: "@svgr/webpack",
+        },
+        {
+          test: /\.(png|jpg|jpeg|gif)$/i,
+          type: "asset/resource",
         },
       ],
     },
