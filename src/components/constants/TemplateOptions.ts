@@ -43,7 +43,7 @@ const templateOptions: TemplateOption[] = [
             Rule: "design the best card game",
             Rule_Color: "black",
             Description: "by waking inner child",
-            Color: "#81BD7F",
+            Color: "#80BE97",
             Icon_Source: exploding_cats_icon,
             Image_Source: exploding_cats_image
         },
