@@ -22,6 +22,11 @@ const templateOptions: TemplateOption[] = [
         },
     },
     {
+        label: "BOOM! - Role",
+        name: "boom-role.html",
+        defaultValues: {},
+    },
+    {
         label: "Cards Against Mankind - Black",
         name: "cards-against-mankind-black.html",
         defaultValues: {
