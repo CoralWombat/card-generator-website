@@ -3,6 +3,8 @@ import exploding_cats_icon from 'Pictures/exploding_cats_icon.png';
 import exploding_cats_image from 'Pictures/exploding_cats_image.jpg';
 import basic_image from 'Pictures/basic_image.jpg';
 import dnd_spell_card_image from 'Pictures/dnd_spell_card_image.jpg';
+import boom_role_image from 'Pictures/boom_role_image.jpg';
+import bang_shell from 'Pictures/bang_shell.png';
 
 export const customTemplateOption: TemplateOption = {
     label: "Custom Template",
@@ -22,9 +24,14 @@ const templateOptions: TemplateOption[] = [
         },
     },
     {
-        label: "BOOM! - Role",
-        name: "boom-role.html",
-        defaultValues: {},
+        label: "BOOM! - Character",
+        name: "boom-character.html",
+        defaultValues: {
+            Title: "Dealer Dave",
+            Description: "Creates the best card games.",
+            Image_Source: boom_role_image,
+            health: ("<img class=\"_boom-character-shell\" src=" + bang_shell + " />").repeat(3)
+        },
     },
     {
         label: "Cards Against Mankind - Black",
