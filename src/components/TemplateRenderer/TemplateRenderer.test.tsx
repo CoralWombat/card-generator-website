@@ -1,10 +1,4 @@
-import {
-  render,
-  cleanup,
-  fireEvent,
-  waitFor,
-  renderHook,
-} from "@testing-library/react";
+import { render, fireEvent, waitFor } from "@testing-library/react";
 import "@testing-library/jest-dom";
 import CardsContext from "../../context/CardsContext";
 import TemplateRenderer from "./TemplateRenderer";
