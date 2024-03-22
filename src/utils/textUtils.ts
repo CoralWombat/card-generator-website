@@ -1,4 +1,4 @@
-export const isOverflown = (clientHeight: number, scrollHeight: number) => scrollHeight > clientHeight;
+export const isOverflown = (clientHeight: number, scrollHeight: number) => clientHeight < scrollHeight;
 
 export const resizeText = (element: HTMLElement, parent: HTMLElement, maxSize: number) => {
     let i = 1;
