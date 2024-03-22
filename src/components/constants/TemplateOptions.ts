@@ -48,20 +48,6 @@ const templateOptions: TemplateOption[] = [
         },
     },
     {
-        label: "Exploding Cats",
-        name: "exploding-cats.html",
-        defaultValues: {
-            Title: "Play",
-            Edition: "Forge of Cards",
-            Rule: "design the best card game",
-            Rule_Color: "black",
-            Description: "by waking inner child",
-            Color: "#80BE97",
-            Icon_Source: exploding_cats_icon,
-            Image_Source: exploding_cats_image
-        },
-    },
-    {
         label: "D&D Spell Card",
         name: "dnd_spell_card_template.html",
         defaultValues: {
@@ -76,6 +62,20 @@ const templateOptions: TemplateOption[] = [
             Save: "None",
             Description:
                 "You touch a willing creature who isn't wearing armor, and a protective magical force surrounds it until the spell ends. The target's base AC becomes 13 + its Dexterity modifier. The spell ends if the target dons armor or if you dismiss the spell as an action.",
+        },
+    },
+    {
+        label: "Exploding Cats",
+        name: "exploding-cats.html",
+        defaultValues: {
+            Title: "Play",
+            Edition: "Forge of Cards",
+            Rule: "design the best card game",
+            Rule_Color: "black",
+            Description: "by waking inner child",
+            Color: "#80BE97",
+            Icon_Source: exploding_cats_icon,
+            Image_Source: exploding_cats_image
         },
     },
 ];
