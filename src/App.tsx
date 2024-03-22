@@ -75,7 +75,7 @@ const pageClassName = "max-w-screen-xl";
 const App = () => {
   return (
     <HashRouter>
-      <div className="flex flex-col items-center gap-3 mx-4">
+      <div className="flex flex-col items-center gap-3 mx-4 print:mx-0">
         <Menubar className="no-print w-full" model={items} />
 
         <Routes>
