@@ -50,6 +50,7 @@
     ._boom-character-description {
       margin: auto;
       text-align: center;
+      max-height: 30mm;
 
       font-family: Palatino, Palatino Linotype, Palatino LT STD, Book Antiqua,
         Georgia, serif;
@@ -98,7 +99,9 @@
     <div class="_boom-character-shadow">
       <img class="_boom-character-image" src="{{Image_Source}}" />
     </div>
-    <div class="_boom-character-description">{{&Description}}</div>
+    <div class="text-autosized-container _boom-character-description">
+      <span class="text-autosized">{{&Description}}</span>
+    </div>
     <div class="_boom-character-shell-container">{{&health}}</div>
     <div class="_boom-character-circle" style="left: 21.5mm; top: -3.4mm"></div>
     <div class="_boom-character-circle" style="left: 18.5mm; top: -3.8mm"></div>
