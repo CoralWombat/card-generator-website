@@ -6,6 +6,7 @@ import dnd_spell_card_image from 'Pictures/dnd_spell_card_image.jpg';
 import boom_role_image from 'Pictures/boom_role_image.jpg';
 import bang_shell from 'Pictures/bang_shell.png';
 import boom_blue_bordered_image from 'Pictures/boom_blue_bordered_image.jpg';
+import boom_brown_bordered_image from 'Pictures/boom_brown_bordered_image.jpg';
 
 export const customTemplateOption: TemplateOption = {
     label: "Custom Template",
@@ -32,6 +33,16 @@ const templateOptions: TemplateOption[] = [
             Description: "If you have more cards at the end of your turn than the hand-size limit, you don't need to discard.",
             Image_Source: boom_blue_bordered_image,
             Number: "2<span style=\"color: red\">♥</span>"
+        },
+    },
+    {
+        label: "BOOM! - Brown-Bordered",
+        name: "boom-brown-bordered.html",
+        defaultValues: {
+            Title: "Fly Like An Eagle",
+            Description: "You cannot be targeted with <i>BOOM!</i> cards.",
+            Image_Source: boom_brown_bordered_image,
+            Number: "2<span style=\"color: black\">♠</span>"
         },
     },
     {
