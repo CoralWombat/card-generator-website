@@ -5,6 +5,7 @@ import basic_image from 'Pictures/basic_image.jpg';
 import dnd_spell_card_image from 'Pictures/dnd_spell_card_image.jpg';
 import boom_role_image from 'Pictures/boom_role_image.jpg';
 import bang_shell from 'Pictures/bang_shell.png';
+import boom_blue_bordered_image from 'Pictures/boom_blue_bordered_image.jpg';
 
 export const customTemplateOption: TemplateOption = {
     label: "Custom Template",
@@ -21,6 +22,16 @@ const templateOptions: TemplateOption[] = [
             Title: "Soft Kitty",
             Description:
                 "A soft kitty is a gentle and plush feline, often characterized by its fluffy fur and soothing purr.",
+        },
+    },
+    {
+        label: "BOOM! - Blue-Bordered",
+        name: "boom-blue-bordered.html",
+        defaultValues: {
+            Title: "Hold 'em",
+            Description: "If you have more cards at the end of your turn than the hand-size limit, you don't need to discard.",
+            Image_Source: boom_blue_bordered_image,
+            Number: "2<span style=\"color: red\">♥</span>"
         },
     },
     {
