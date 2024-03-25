@@ -33,17 +33,20 @@ const TemplateRenderer = ({
   const output = Mustache.render(template, templateParameters);
 
   useEffect(() => {
-    const containers = templateRendererRef.current.querySelectorAll(
-      ".text-autosized-container"
-    );
-    containers.forEach((container: HTMLElement) => {
-      const element: HTMLElement = container.querySelector(".text-autosized");
-      const currentFontSize = window.getComputedStyle(element).fontSize;
-      const maxFontSize = Number(
-        currentFontSize.substring(0, currentFontSize.length - 2)
+    const timeOutId = setTimeout(() => {
+      const containers = templateRendererRef.current.querySelectorAll(
+        ".text-autosized-container"
       );
-      resizeText(element, container, maxFontSize);
-    });
+      containers.forEach((container: HTMLElement) => {
+        const element: HTMLElement = container.querySelector(".text-autosized");
+        const currentFontSize = window.getComputedStyle(element).fontSize;
+        const maxFontSize = Number(
+          currentFontSize.substring(0, currentFontSize.length - 2)
+        );
+        resizeText(element, container, maxFontSize);
+      });
+    }, 500);
+    return () => clearTimeout(timeOutId);
   }, [template, templateParameters]);
 
   return (
