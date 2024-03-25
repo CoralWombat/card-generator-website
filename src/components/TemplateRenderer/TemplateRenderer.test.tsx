@@ -8,6 +8,10 @@ jest.mock("../../utils/textUtils", () => ({
   resizeText: jest.fn(() => ["parameterName"]),
 }));
 
+Object.defineProperty(document, "fonts", {
+  value: { ready: Promise.resolve({}) },
+});
+
 const mockResizeText = resizeText as jest.MockedFunction<typeof resizeText>;
 
 const setCardsMock = jest.fn();
