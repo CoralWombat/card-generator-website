@@ -7,6 +7,7 @@ import boom_role_image from 'Pictures/boom_role_image.jpg';
 import bang_shell from 'Pictures/bang_shell.png';
 import boom_blue_bordered_image from 'Pictures/boom_blue_bordered_image.jpg';
 import boom_brown_bordered_image from 'Pictures/boom_brown_bordered_image.jpg';
+import boom_weapon_image from 'Pictures/boom_weapon_image.jpg';
 
 export const customTemplateOption: TemplateOption = {
     label: "Custom Template",
@@ -32,7 +33,7 @@ const templateOptions: TemplateOption[] = [
             Title: "Hold 'em",
             Description: "If you have more cards at the end of your turn than the hand-size limit, you don't need to discard.",
             Image_Source: boom_blue_bordered_image,
-            Number: "2<span style=\"color: red\">♥</span>"
+            Number: "A<span style=\"color: black\">♠</span>"
         },
     },
     {
@@ -42,7 +43,7 @@ const templateOptions: TemplateOption[] = [
             Title: "Fly Like An Eagle",
             Description: "You cannot be targeted with <i>BOOM!</i> cards.",
             Image_Source: boom_brown_bordered_image,
-            Number: "2<span style=\"color: black\">♠</span>"
+            Number: "K<span style=\"color: red\">♦</span>"
         },
     },
     {
@@ -53,6 +54,16 @@ const templateOptions: TemplateOption[] = [
             Description: "Creates the best card games.",
             Image_Source: boom_role_image,
             health: ("<img class=\"_boom-character-shell\" src=" + bang_shell + " />").repeat(3)
+        },
+    },
+    {
+        label: "BOOM! - Weapon",
+        name: "boom-weapon.html",
+        defaultValues: {
+            Title: "Hunter's Knife",
+            Description: "Deals double damage when if a <i>BOOM!</i> card hits.",
+            Image_Source: boom_weapon_image,
+            Number: "2<span style=\"color: black\">♠</span>"
         },
     },
     {
