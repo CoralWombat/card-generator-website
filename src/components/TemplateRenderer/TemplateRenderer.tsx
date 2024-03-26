@@ -4,6 +4,7 @@ import { resizeText } from "../../utils/textUtils";
 import { Button } from "primereact/button";
 import { lazySvg } from "../../utils/lazy";
 import CardsContext from "../../context/CardsContext";
+import { sleepUntil } from "../../utils/timeoutUtils";
 
 const Times = lazySvg(() => import("../../media/icon/times.svg"));
 
@@ -33,18 +34,25 @@ const TemplateRenderer = ({
   const output = Mustache.render(template, templateParameters);
 
   useEffect(() => {
-    document.fonts.ready.then(() => {
-      const containers = templateRendererRef.current.querySelectorAll(
-        ".text-autosized-container"
+    const containers = templateRendererRef.current.querySelectorAll(
+      ".text-autosized-container"
+    );
+    containers.forEach(async (container: HTMLElement) => {
+      const element: HTMLElement = container.querySelector(".text-autosized");
+      const currentFontSize = window.getComputedStyle(element).fontSize;
+      const maxFontSize = Number(
+        currentFontSize.substring(0, currentFontSize.length - 2)
       );
-      containers.forEach((container: HTMLElement) => {
-        const element: HTMLElement = container.querySelector(".text-autosized");
-        const currentFontSize = window.getComputedStyle(element).fontSize;
-        const maxFontSize = Number(
-          currentFontSize.substring(0, currentFontSize.length - 2)
-        );
-        resizeText(element, container, maxFontSize);
-      });
+
+      const font = window
+        .getComputedStyle(element, null)
+        .getPropertyValue("font-family");
+
+      await sleepUntil(() => {
+        return document.fonts.check("0px " + font);
+      }, 5000);
+
+      resizeText(element, container, maxFontSize);
     });
   }, [template, templateParameters]);
 
