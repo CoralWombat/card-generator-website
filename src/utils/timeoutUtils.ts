@@ -1,5 +1,5 @@
 export const sleepUntil = async (f: Function, timeoutMs: number) => {
-    return new Promise<void>((resolve, reject) => {
+    return new Promise<void>((resolve) => {
         const timeWas = new Date();
         const wait = setInterval(function () {
             if (f()) {
