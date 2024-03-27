@@ -9,9 +9,11 @@ const HomePage = ({ className }: DefaultComponentProps) => {
       }
     >
       <h1 id="page-title">Forge of Cards</h1>
-      <h2 className="flex justify-center flex-wrap gap-2 text-3xl">
-        <div>{"The website for prototyping your cards "}</div>
-        <div className="rainbow_text_animated">{"effortlessly"}</div>
+      <h2 className="flex justify-center flex-wrap text-2xl lg:text-3xl">
+        <div>
+          {"The website for prototyping your cards "}
+          <span className="rainbow_text_animated">effortlessly</span>
+        </div>
       </h2>
       <div className="text-left">
         <p>
@@ -35,14 +37,14 @@ const HomePage = ({ className }: DefaultComponentProps) => {
         </ul>
         <p>
           Whether you want to make a trivia game, a role-playing game, or a
-          party game, Forge of Cards has you covered. You can customize your cards
-          with different fonts, colors, images, and icons. 😍🎨🖌️ You can also
-          preview your cards before printing them. 🔍👀
+          party game, Forge of Cards has you covered. You can customize your
+          cards with different fonts, colors, images, and icons. 😍🎨🖌️ You can
+          also preview your cards before printing them. 🔍👀
         </p>
         <p>
-          Forge of Cards is easy to use, fun to play, and free to try. So what are
-          you waiting for? Start creating your own card games and board games
-          today with Forge of Cards! 🙌🎉🎁
+          Forge of Cards is easy to use, fun to play, and free to try. So what
+          are you waiting for? Start creating your own card games and board
+          games today with Forge of Cards! 🙌🎉🎁
         </p>
       </div>
     </div>

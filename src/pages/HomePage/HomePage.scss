@@ -1,5 +1,6 @@
 #page-title {
-  font-size: 8rem /* 128px */;
+  @apply text-8xl  lg:text-9xl;
+  line-height: 1.2;
   background: -webkit-linear-gradient(130deg, #0f5257, #a5b4fc, #0b3142);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
