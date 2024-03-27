@@ -1,0 +1,93 @@
+<div class="_boom-role-card-border">
+  <link rel="stylesheet" href="https://use.typekit.net/gwk7eej.css" />
+  <style>
+    ._boom-role-card-border {
+      width: 60mm;
+      height: 91mm;
+      background-color: white;
+
+      outline-style: dashed;
+      outline-color: gray;
+      outline-width: thin;
+
+      padding: 2mm;
+
+      color: black;
+    }
+    ._boom-role-card {
+      position: relative;
+      margin: auto;
+
+      padding: 4.5mm;
+
+      width: calc(100% - 9mm);
+      height: calc(100% - 9mm);
+
+      background: radial-gradient(#fffcfa, #e6c1a5);
+
+      border-radius: 4.5mm;
+
+      font-size: 14px;
+
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    ._boom-role-title {
+      margin-top: -1mm;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      height: 17mm;
+
+      text-transform: uppercase;
+      font-family: "mesquite-std", sans-serif;
+      font-weight: 400;
+      font-style: normal;
+      font-size: 52px;
+      letter-spacing: 1px;
+    }
+    ._boom-role-description {
+      margin: auto;
+      text-align: center;
+      max-height: 15mm;
+
+      font-family: Palatino, Palatino Linotype, Palatino LT STD, Book Antiqua,
+        Georgia, serif;
+    }
+    ._boom-role-image {
+      width: 100%;
+    }
+    ._boom-role-circle {
+      position: absolute;
+
+      width: 2.5mm;
+      height: 2.5mm;
+
+      background-color: white;
+      border-radius: 100%;
+    }
+  </style>
+  <div class="_boom-role-card">
+    <div class="text-autosized-container _boom-role-title">
+      <span class="text-autosized">{{Title}}</span>
+    </div>
+    <img class="_boom-role-image" src="{{Image_Source}}" />
+    <div class="text-autosized-container _boom-role-description">
+      <span class="text-autosized">{{&Description}}</span>
+    </div>
+    <div class="_boom-role-circle" style="left: 25mm; top: 1mm"></div>
+    <div class="_boom-role-circle" style="left: 22mm; top: -0.3mm"></div>
+    <div class="_boom-role-circle" style="left: 14.5mm; top: 0.3mm"></div>
+
+    <div class="_boom-role-circle" style="left: -0.5mm; top: 41.5mm"></div>
+
+    <div class="_boom-role-circle" style="left: 52.5mm; bottom: 1mm"></div>
+    <div class="_boom-role-circle" style="left: 50.5mm; bottom: 0mm"></div>
+
+    <div class="_boom-role-circle" style="right: 0mm; top: 71.5mm"></div>
+    <div class="_boom-role-circle" style="right: -1.5mm; top: 30.5mm"></div>
+  </div>
+</div>

@@ -3,11 +3,12 @@ import exploding_cats_icon from 'Pictures/exploding_cats_icon.png';
 import exploding_cats_image from 'Pictures/exploding_cats_image.jpg';
 import basic_image from 'Pictures/basic_image.jpg';
 import dnd_spell_card_image from 'Pictures/dnd_spell_card_image.jpg';
-import boom_role_image from 'Pictures/boom_role_image.jpg';
+import boom_character_image from 'Pictures/boom_character_image.jpg';
 import bang_shell from 'Pictures/bang_shell.png';
 import boom_blue_bordered_image from 'Pictures/boom_blue_bordered_image.jpg';
 import boom_brown_bordered_image from 'Pictures/boom_brown_bordered_image.jpg';
 import boom_weapon_image from 'Pictures/boom_weapon_image.jpg';
+import boom_role_image from 'Pictures/boom_role_image.png';
 
 export const customTemplateOption: TemplateOption = {
     label: "Custom Template",
@@ -52,8 +53,17 @@ const templateOptions: TemplateOption[] = [
         defaultValues: {
             Title: "Dealer Dave",
             Description: "Creates the best card games.",
-            Image_Source: boom_role_image,
+            Image_Source: boom_character_image,
             health: ("<img class=\"_boom-character-shell\" src=" + bang_shell + " />").repeat(3)
+        },
+    },
+    {
+        label: "BOOM! - Role",
+        name: "boom-role.html",
+        defaultValues: {
+            Title: "Sniper",
+            Description: "Kill the renegade!",
+            Image_Source: boom_role_image,
         },
     },
     {
