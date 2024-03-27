@@ -44,14 +44,6 @@ const TemplateRenderer = ({
         currentFontSize.substring(0, currentFontSize.length - 2)
       );
 
-      const font = window
-        .getComputedStyle(element, null)
-        .getPropertyValue("font-family");
-
-      await sleepUntil(() => {
-        return document.fonts.check("0px " + font);
-      }, 5000);
-
       resizeText(element, container, maxFontSize);
     });
   }, [template, templateParameters]);
