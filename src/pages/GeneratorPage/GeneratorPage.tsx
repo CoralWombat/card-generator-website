@@ -47,7 +47,7 @@ const GeneratorPage = ({ className }: DefaultComponentProps) => {
   return (
     <CardsContext.Provider value={[cards, setCards]}>
       <div className={className + " flex flex-col w-full"}>
-        <div className="flex flex-row justify-center">
+        <div className="flex flex-col md:flex-row justify-center">
           <div className="no-print flex flex-col gap-4 w-full">
             <Dropdown
               value={selectedTemplateOption}
@@ -85,9 +85,9 @@ const GeneratorPage = ({ className }: DefaultComponentProps) => {
               templateParameters={templateParameters}
             />
           </div>
-          <Divider className="no-print" layout="vertical" />
+          <Divider className="no-print hidden md:inline" layout="vertical" />
           <TemplateRenderer
-            className="no-print w-full self-center"
+            className="no-print w-auto md:w-full self-center mt-3 md:mt-0"
             template={template}
             templateParameters={templateParameters}
           />
