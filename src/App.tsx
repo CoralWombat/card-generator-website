@@ -70,7 +70,7 @@ const items: MenuItem[] = [
   },
 ];
 
-const pageClassName = "max-w-screen-xl";
+const pageClassName = "max-w-full xl:max-w-screen-xl";
 
 const App = () => {
   return (
